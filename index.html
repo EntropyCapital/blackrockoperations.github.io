@@ -4,20 +4,26 @@
   <meta charset="utf-8">
   <title>Phoenix’s First Bitcoin-Friendly Video Studio</title>
   <link href="https://unpkg.com/tailwindcss@^3/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+  </style>
 </head>
-<body class="bg-gray-900 text-white min-h-screen flex items-center justify-center" style="font-family: Arial, sans-serif;">
-  <div class="flex flex-col items-center justify-center text-center space-y-12 w-full max-w-3xl px-4">
+<body class="bg-gray-900 text-white min-h-screen flex items-center justify-center">
+  <div class="flex flex-col items-center justify-center text-center space-y-12 w-full max-w-2xl px-4">
 
+    <!-- HEADER -->
     <header>
       <h1 class="text-4xl font-bold">Consultation • Shoot • Edit • SEO • Thumbnails</h1>
       <p class="mt-2 text-lg">YouTube Videos for Creators & Marketing Videos for Small Biz.</p>
     </header>
 
     <!-- SCHEDULING -->
-    <section id="book" class="w-full">
+    <section id="book" class="w-full flex justify-center">
       <!-- Calendly inline widget begin -->
-      <div class="flex justify-center">
-        <div class="calendly-inline-widget" data-url="https://calendly.com/coltonletellier23/30min" style="min-width:320px;width:100%;max-width:600px;height:700px;"></div>
+      <div style="min-width:320px;width:100%;max-width:600px;height:700px;" class="flex justify-center">
+        <div class="calendly-inline-widget" data-url="https://calendly.com/coltonletellier23/30min"></div>
       </div>
       <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
       <!-- Calendly inline widget end -->
@@ -25,7 +31,7 @@
 
     <!-- USD PAYMENT -->
     <section id="usd">
-      <a href="https://buy.stripe.com/9AQdSw91WfeM7eg7ss" class="px-6 py-3 bg-blue-600 rounded-xl inline-block">Pay in USD</a>
+      <a href="https://buy.stripe.com/9AQdSw91WfeM7eg7ss" class="px-6 py-3 bg-blue-600 rounded-xl hover:bg-blue-700 transition">Pay in USD</a>
     </section>
 
     <!-- BITCOIN PAYMENT -->
