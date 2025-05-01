@@ -212,36 +212,53 @@
 
     <!-- Center: Inline subscribe form -->
     <form
-      class="flex items-center space-x-2"
-      action="https://assets.mailerlite.com/jsonp/1491826/forms/153219461605754013/subscribe"
-      data-code=""
-      method="post"
-      target="_blank"
-    >
-      <input
-        type="email"
-        name="fields[email]"
-        required
-        placeholder="Your email"
-        class="bg-gray-800 text-gray-200 placeholder-gray-500 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-      />
-      <button
-        type="submit"
-        class="bg-blue-600 hover:bg-blue-500 text-white font-semibold rounded-lg px-4 py-2 transition-shadow shadow-md"
-      >
-        Subscribe
-      </button>
-      <input type="hidden" name="ml-submit" value="1">
-      <input type="hidden" name="anticsrf" value="true">
-    </form>
+  id="subscribe-form"
+  class="flex items-center space-x-2"
+  action="https://assets.mailerlite.com/jsonp/1491826/forms/153219461605754013/subscribe"
+  method="post"
+>
+  <input
+    type="email"
+    name="fields[email]"
+    required
+    placeholder="Your email"
+    class="bg-gray-800 text-gray-200 placeholder-gray-500 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+  />
+  <button
+    type="submit"
+    class="bg-blue-600 hover:bg-blue-500 text-white font-semibold rounded-lg px-4 py-2 transition-shadow shadow-md"
+  >
+    Subscribe
+  </button>
+  <input type="hidden" name="ml-submit" value="1">
+  <input type="hidden" name="anticsrf" value="true">
+</form>
 
-    <!-- Right: Social links + back-to-top -->
-    <div class="flex items-center space-x-6 text-sm">
-      <a href="https://www.youtube.com/…" target="_blank" class="hover:text-white">YouTube</a>
-      <a href="https://www.instagram.com/…" target="_blank" class="hover:text-white">Instagram</a>
-      <a href="#top" class="hover:text-white">Back to top</a>
-    </div>
-  </div>
+<script>
+  document.getElementById('subscribe-form')
+    .addEventListener('submit', function(e) {
+      e.preventDefault();
+      let form = this;
+      let data = new FormData(form);
+
+      fetch(form.action, {
+        method: 'POST',
+        body: data,
+      })
+      .then(r => r.json())
+      .then(json => {
+        if (json.success) {
+          // show the built-in success message
+          ml_webform_success_25476846();
+        } else {
+          alert('Oops, something went wrong. Please try again.');
+        }
+      })
+      .catch(() => {
+        alert('Network error — please try again in a moment.');
+      });
+    });
+</script>
 
   <!-- Copyright -->
   <p class="mt-6 text-center text-xs">&copy; 2025 D.A.G. FILM. All rights reserved.</p>
