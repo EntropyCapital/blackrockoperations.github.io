@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="antialiased">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -7,6 +7,9 @@
 
   <!-- Tailwind CSS via CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Feather Icons -->
+  <script src="https://unpkg.com/feather-icons"></script>
 
   <!-- Calendly Popup Styles & Script -->
   <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
@@ -22,76 +25,79 @@
 </head>
 <body class="bg-gray-900 text-white flex flex-col min-h-screen">
 
-  <!-- Hero Section -->
-  <header id="top" class="w-full h-64 md:h-96 bg-center bg-no-repeat bg-cover" style="background-image: url('images/hero-background.jpg');">
-    <div class="bg-gray-900 bg-opacity-70 w-full h-full flex flex-col items-center justify-center text-center px-4">
-      
-      <header id="top" class="…">
-  <div class="bg-gray-900 bg-opacity-70 …">
-    <!-- Logo -->
-    <img
-      src="images/logo-small.png"
-      alt="D.A.G. FILM Logo"
-      class="h-12 mb-4"
-    />
+  <!-- Sticky Nav -->
+  <nav class="sticky top-0 z-50 bg-gray-900 bg-opacity-90 backdrop-blur-md flex items-center justify-between px-6 py-4">
+    <a href="#top">
+      <img src="images/logo-small.png" alt="D.A.G. FILM Logo" class="h-10">
+    </a>
+    <button onclick="openSchedule()"
+            class="px-5 py-2 bg-blue-600 hover:bg-blue-500 rounded-full font-semibold">
+      Schedule a Call
+    </button>
+  </nav>
 
-    <h1 class="text-3xl sm:text-4xl …">
-      Strategy. Shoot. Edit.
-    </h1>
-    …
-  </div>
-</header>
-      <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight">
+  <!-- Hero Section -->
+  <header id="top"
+          class="w-full h-96 bg-center bg-no-repeat bg-cover"
+          style="background-image: url('images/hero-background.jpg');">
+    <div class="bg-gray-900 bg-opacity-70 w-full h-full flex flex-col items-center justify-center text-center px-4">
+      <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight">
         Strategy. Shoot. Edit.
       </h1>
-      <p class="mt-3 text-base sm:text-lg md:text-xl text-gray-200 max-w-xl">
+      <p class="mt-4 text-base sm:text-lg md:text-xl text-gray-200 max-w-xl">
         Transform your brand with high-impact videos that engage, convert, and grow your audience.
       </p>
-      <button type="button" onclick="return openSchedule()"
-              class="mt-6 px-6 py-3 bg-blue-600 hover:bg-blue-500 rounded-full font-semibold text-white text-base">
-        Schedule a Call
-      </button>
     </div>
   </header>
 
   <!-- Sales Pitch -->
-  <section id="about" class="py-12 px-6">
+  <section id="about" class="py-16 px-6">
     <div class="max-w-3xl mx-auto text-center">
       <h2 class="text-2xl md:text-3xl font-bold">Why Work With Me?</h2>
       <p class="mt-4 text-gray-300">
-        Stop spinning your wheels and start getting results. I craft videos that convert viewers into subscribers, leads, and customers—backed by data-driven strategies and a decade of production experience.
+        Stop spinning your wheels and start getting results. I craft videos that convert viewers into subscribers,
+        leads, and customers—backed by data-driven strategies and a decade of production experience.
       </p>
     </div>
   </section>
 
   <!-- Services -->
-  <section id="services" class="py-12 px-6 bg-gray-800">
+  <section id="services" class="py-16 px-6 bg-gray-800">
     <div class="max-w-4xl mx-auto">
-      <h2 class="text-2xl md:text-3xl font-bold text-center mb-6">Services</h2>
+      <h2 class="text-2xl md:text-3xl font-bold text-center mb-8">Services</h2>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <!-- Consultation page link -->
+        <!-- Consultation -->
         <a href="pages/consultation.html"
-           class="block bg-gray-700 p-4 md:p-6 rounded-2xl hover:bg-gray-600 text-center">
-          <h3 class="text-lg md:text-xl font-semibold mb-1">Consultation</h3>
-          <p class="text-gray-400 text-sm md:text-base">
+           class="block bg-gray-700 p-6 rounded-2xl shadow-lg hover:bg-gray-600 transition text-center">
+          <div class="flex justify-center mb-4">
+            <i data-feather="message-circle" class="h-10 w-10 text-blue-400"></i>
+          </div>
+          <h3 class="text-xl font-semibold mb-2">Consultation</h3>
+          <p class="text-gray-400">
             Strategy sessions for content planning, branding, and channel growth.
           </p>
         </a>
 
-        <!-- Production page link -->
+        <!-- Production -->
         <a href="pages/production.html"
-           class="block bg-gray-700 p-4 md:p-6 rounded-2xl hover:bg-gray-600 text-center">
-          <h3 class="text-lg md:text-xl font-semibold mb-1">Production</h3>
-          <p class="text-gray-400 text-sm md:text-base">
+           class="block bg-gray-700 p-6 rounded-2xl shadow-lg hover:bg-gray-600 transition text-center">
+          <div class="flex justify-center mb-4">
+            <i data-feather="camera" class="h-10 w-10 text-blue-400"></i>
+          </div>
+          <h3 class="text-xl font-semibold mb-2">Production</h3>
+          <p class="text-gray-400">
             On-location filming with professional gear and creative direction.
           </p>
         </a>
 
-        <!-- Post-Production page link -->
+        <!-- Post-Production -->
         <a href="pages/post-production.html"
-           class="block bg-gray-700 p-4 md:p-6 rounded-2xl hover:bg-gray-600 text-center">
-          <h3 class="text-lg md:text-xl font-semibold mb-1">Post-Production</h3>
-          <p class="text-gray-400 text-sm md:text-base">
+           class="block bg-gray-700 p-6 rounded-2xl shadow-lg hover:bg-gray-600 transition text-center">
+          <div class="flex justify-center mb-4">
+            <i data-feather="settings" class="h-10 w-10 text-blue-400"></i>
+          </div>
+          <h3 class="text-xl font-semibold mb-2">Post-Production</h3>
+          <p class="text-gray-400">
             Editing, sound design, thumbnails, and SEO optimization for YouTube.
           </p>
         </a>
@@ -99,29 +105,25 @@
     </div>
   </section>
 
-
   <!-- Portfolio & Metrics -->
-  <section id="portfolio" class="py-12 px-6">
+  <section id="portfolio" class="py-16 px-6">
     <div class="max-w-4xl mx-auto text-center">
       <h2 class="text-2xl md:text-3xl font-bold mb-4">Portfolio & Metrics</h2>
       <p class="text-gray-400 mb-6 text-sm md:text-base">
         200+ videos produced &nbsp;• &gt;50% avg. watch time retention &nbsp;• 3× subscriber growth for clients
       </p>
       <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-        <img src="images/thumb1.jpg" alt="Project 1" class="rounded-lg w-full">
-        <img src="images/thumb2.jpg" alt="Project 2" class="rounded-lg w-full">
-        <img src="images/thumb3.jpg" alt="Project 3" class="rounded-lg w-full">
+        <img src="images/thumb1.jpg" alt="Project 1" class="rounded-lg w-full shadow-md">
+        <img src="images/thumb2.jpg" alt="Project 2" class="rounded-lg w-full shadow-md">
+        <img src="images/thumb3.jpg" alt="Project 3" class="rounded-lg w-full shadow-md">
       </div>
     </div>
   </section>
 
   <!-- Final CTA -->
-  <section class="py-12 px-6 bg-gray-800 text-center">
+  <section class="py-16 px-6 bg-gray-800 text-center">
     <h2 class="text-xl md:text-2xl font-bold mb-4">Ready to Level Up?</h2>
-    <button type="button" onclick="return openSchedule()"
-            class="px-6 py-2 bg-blue-600 hover:bg-blue-500 rounded-xl font-semibold text-white">
-      Schedule a Call
-    </button>
+    <!-- Removed extra Schedule button here to keep only the sticky nav CTA -->
   </section>
 
   <!-- Footer -->
@@ -133,7 +135,7 @@
       </div>
       <form class="flex items-center space-x-2">
         <input type="email" placeholder="Your email" class="px-2 py-1 rounded-md text-gray-900" />
-        <button type="submit" class="px-3 py-1 bg-blue-600 rounded-md text-white font-semibold">Subscribe</button>
+        <button type="submit" class="px-3 py-1 bg-blue-600 hover:bg-blue-500 rounded-md font-semibold text-white">Subscribe</button>
       </form>
       <div class="flex space-x-4 text-sm">
         <a href="https://youtube.com/coltonletellier" target="_blank" class="hover:text-white">YouTube</a>
@@ -147,5 +149,9 @@
     <p class="mt-4 text-center text-xs">&copy; 2025 D.A.G. FILM. All rights reserved.</p>
   </footer>
 
+  <!-- Activate Feather Icons -->
+  <script>
+    feather.replace({ 'stroke-width': 2 });
+  </script>
 </body>
 </html>
