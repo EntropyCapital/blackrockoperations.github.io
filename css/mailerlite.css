@@ -592,6 +592,21 @@
 
       }
 
+/* ─── Button override ────────────────────────────────────────── */
+#mlb2-25476846 .ml-form-embedSubmit button.primary {
+  background-color: #2563EB !important;   /* blue-600 */
+  color: #FFFFFF !important;
+  font-weight: 600 !important;
+  border: none !important;
+  border-radius: .75rem !important;      /* rounded-xl */
+  padding: .75rem 1.5rem !important;
+  transition: background-color .2s ease !important;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.3) !important;
+}
+#mlb2-25476846 .ml-form-embedSubmit button.primary:hover {
+  background-color: #1E40AF !important;   /* blue-800 */
+}
+
 /* ──────────────────────────────────────────────────────────────
    Override MailerLite styles to match D.A.G. FILM dark theme
 ────────────────────────────────────────────────────────────── */
