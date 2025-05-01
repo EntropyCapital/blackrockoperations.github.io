@@ -212,85 +212,72 @@
 
     <!-- Center: Inline subscribe form -->
     <form
-  id="subscribe-form"
-  class="flex items-center space-x-2"
-  action="https://assets.mailerlite.com/jsonp/1491826/forms/153219461605754013/subscribe"
-  method="post"
->
-  <input
-    type="email"
-    name="fields[email]"
-    required
-    placeholder="Your email"
-    class="bg-gray-800 text-gray-200 placeholder-gray-500 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-  />
-  <button
-    type="submit"
-    class="bg-blue-600 hover:bg-blue-500 text-white font-semibold rounded-lg px-4 py-2 transition-shadow shadow-md"
-  >
-    Subscribe
-  </button>
-  <input type="hidden" name="ml-submit" value="1">
-  <input type="hidden" name="anticsrf" value="true">
-</form>
+      id="subscribe-form"
+      class="flex items-center space-x-2"
+      action="https://assets.mailerlite.com/jsonp/1491826/forms/153219461605754013/subscribe"
+      method="post"
+    >
+      <input
+        type="email"
+        name="fields[email]"
+        required
+        placeholder="Your email"
+        class="bg-gray-800 text-gray-200 placeholder-gray-500 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+      />
+      <button
+        type="submit"
+        class="bg-blue-600 hover:bg-blue-500 text-white font-semibold rounded-lg px-4 py-2 transition-shadow shadow-md"
+      >
+        Subscribe
+      </button>
+      <input type="hidden" name="ml-submit" value="1" />
+      <input type="hidden" name="anticsrf" value="true" />
+    </form>
 
-<script>
-  document.getElementById('subscribe-form')
-    .addEventListener('submit', function(e) {
-      e.preventDefault();
-      let form = this;
-      let data = new FormData(form);
-
-      fetch(form.action, {
-        method: 'POST',
-        body: data,
-      })
-      .then(r => r.json())
-      .then(json => {
-        if (json.success) {
-          // show the built-in success message
-          ml_webform_success_25476846();
-        } else {
-          alert('Oops, something went wrong. Please try again.');
-        }
-      })
-      .catch(() => {
-        alert('Network error — please try again in a moment.');
-      });
-    });
-</script>
-
-     <!-- Right: Social links + back-to-top -->
-    <div class="flex items-center space-x-6 text-sm">
-      <a href="https://www.youtube.com/…" target="_blank" class="hover:text-white">YouTube</a>
-      <a href="https://www.instagram.com/…" target="_blank" class="hover:text-white">Instagram</a>
+    <!-- Right: Social links -->
+    <div class="flex space-x-4 text-sm">
+      <a href="https://www.youtube.com/channel/UCGcgOlgWbHwZJZz1i8kYMGg" target="_blank" class="hover:text-white">YouTube</a>
+      <a href="https://www.instagram.com/d.a.g.film/" target="_blank" class="hover:text-white">Instagram</a>
       <a href="#top" class="hover:text-white">Back to top</a>
     </div>
   </div>
 
   <!-- Copyright -->
-  <p class="mt-6 text-center text-xs">&copy; 2025 D.A.G. FILM. All rights reserved.</p>
-</footer>
+  <p class="mt-6 text-center text-xs text-gray-500">&copy; 2025 D.A.G. FILM. All rights reserved.</p>
 
-  <!-- MailerLite JS -->
+  <!-- Your success callback -->
   <script>
     function ml_webform_success_25476846() {
-      document
-        .querySelector(".ml-subscribe-form-25476846 .row-success")
-        .style.display = "block";
-      document
-        .querySelector(".ml-subscribe-form-25476846 .row-form")
-        .style.display = "none";
+      const form = document.getElementById('subscribe-form');
+      form.innerHTML = '<span class="text-white font-medium">Thanks for subscribing!</span>';
     }
+
+    // hijack the form submit and POST via fetch
+    document.getElementById('subscribe-form')
+      .addEventListener('submit', function(e) {
+        e.preventDefault();
+        const form = this;
+        const data = new FormData(form);
+
+        fetch(form.action, {
+          method: 'POST',
+          body: data,
+        })
+        .then(r => r.json())
+        .then(json => {
+          if (json.success) {
+            ml_webform_success_25476846();
+          } else {
+            alert('Oops, something went wrong. Please try again.');
+          }
+        })
+        .catch(() => {
+          alert('Network error — please try again in a moment.');
+        });
+      });
   </script>
-  <script
-    src="https://groot.mailerlite.com/js/w/webforms.min.js?v176e10baa5e7ed80d35ae235be3d5024"
-  ></script>
-  <script>
-    fetch(
-      "https://assets.mailerlite.com/jsonp/1491826/forms/153219461605754013/takel"
-    );
-  </script>
+</footer>
+
 
   <!-- Activate Feather Icons -->
   <script>
