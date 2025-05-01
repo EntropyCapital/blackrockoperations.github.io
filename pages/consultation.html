@@ -44,129 +44,79 @@
     </div>
   </header>
 
-  <!-- Why Work With Me -->
-  <section id="about" class="py-16 px-6">
-    <div class="max-w-3xl mx-auto text-center">
-      <h2 class="text-2xl md:text-3xl font-bold">Why Work With Me?</h2>
-      <p class="mt-4 text-gray-300">
-        Stop spinning your wheels and start getting results. I craft videos that
-        convert viewers into subscribers, leads, and customers—backed by
-        data-driven strategies and a decade of production experience.
-      </p>
-    </div>
-  </section>
+  <!-- what we cover -->
+  <section id="consultation-details" class="py-16 px-6 bg-gray-800">
+  <div class="max-w-4xl mx-auto">
+    <h2 class="text-2xl md:text-3xl font-bold text-center text-white mb-8">
+      What We Cover
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-5 gap-6">
+      <!-- Pre-Production -->
+      <div class="bg-gray-700 p-6 rounded-2xl shadow-lg text-center">
+        <div class="flex justify-center mb-4">
+          <i data-feather="sliders" class="h-10 w-10 text-blue-400"></i>
+        </div>
+        <h3 class="text-xl font-semibold text-white mb-2">Pre-Production</h3>
+        <p class="text-gray-300 text-sm">
+          We map out your shoot—from storyboarding & location scouting to shot lists & talent direction—so that when cameras roll, everything runs like clockwork.
+        </p>
+      </div>
 
-  <!-- Services -->
-  <section id="services" class="py-16 px-6 bg-gray-800">
-    <div class="max-w-4xl mx-auto">
-      <h2 class="text-2xl md:text-3xl font-bold text-center mb-8">
-        Services
-      </h2>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <!-- Consultation -->
+      <!-- Content Planning -->
+      <div class="bg-gray-700 p-6 rounded-2xl shadow-lg text-center">
+        <div class="flex justify-center mb-4">
+          <i data-feather="layout" class="h-10 w-10 text-blue-400"></i>
+        </div>
+        <h3 class="text-xl font-semibold text-white mb-2">Content Planning</h3>
+        <p class="text-gray-300 text-sm">
+          Develop a data-driven roadmap: topic research, publishing cadence, and audience hooks that drive views, watch-time, and subscriptions.
+        </p>
+      </div>
+
+      <!-- Branding -->
+      <div class="bg-gray-700 p-6 rounded-2xl shadow-lg text-center">
+        <div class="flex justify-center mb-4">
+          <i data-feather="package" class="h-10 w-10 text-blue-400"></i>
+        </div>
+        <h3 class="text-xl font-semibold text-white mb-2">Branding</h3>
+        <p class="text-gray-300 text-sm">
+          Craft your unique channel identity—from visual style and tone of voice, to thumbnail design and on-screen graphics—to stand out in a crowded feed.
+        </p>
+      </div>
+
+      <!-- Channel Growth -->
+      <div class="bg-gray-700 p-6 rounded-2xl shadow-lg text-center">
+        <div class="flex justify-center mb-4">
+          <i data-feather="trending-up" class="h-10 w-10 text-blue-400"></i>
+        </div>
+        <h3 class="text-xl font-semibold text-white mb-2">Channel Growth</h3>
+        <p class="text-gray-300 text-sm">
+          Optimize SEO, playlists, end-screens and community tactics to turn casual viewers into loyal subscribers—and ignite your long-term growth.
+        </p>
+      </div>
+
+      <!-- 1-Hour Strategy Call -->
+      <div class="bg-blue-600 p-6 rounded-2xl shadow-lg text-center col-span-1 md:col-span-1 flex flex-col justify-between">
+        <div>
+          <div class="flex justify-center mb-4">
+            <i data-feather="clock" class="h-12 w-12 text-white"></i>
+          </div>
+          <h3 class="text-2xl font-semibold text-white mb-2">1-Hour Strategy Call</h3>
+          <p class="text-blue-200 mb-6 text-sm">
+            A deep dive into your channel goals, content roadmap, and SEO-driven growth strategy.
+          </p>
+        </div>
         <a
           href="pages/consultation.html"
-          class="block bg-gray-700 p-6 rounded-2xl shadow-lg hover:bg-gray-600 transition text-center"
+          onclick="openSchedule()"
+          class="mt-4 inline-block px-6 py-2 bg-white text-blue-600 font-semibold rounded-full transition hover:bg-gray-100"
         >
-          <div class="flex justify-center mb-4">
-            <i
-              data-feather="message-circle"
-              class="h-10 w-10 text-blue-400"
-            ></i>
-          </div>
-          <h3 class="text-xl font-semibold mb-2">Consultation</h3>
-          <p class="text-gray-400">
-            Strategy sessions for content planning, branding, and channel growth.
-          </p>
-        </a>
-
-        <!-- Production -->
-        <a
-          href="pages/production.html"
-          class="block bg-gray-700 p-6 rounded-2xl shadow-lg hover:bg-gray-600 transition text-center"
-        >
-          <div class="flex justify-center mb-4">
-            <i data-feather="camera" class="h-10 w-10 text-blue-400"></i>
-          </div>
-          <h3 class="text-xl font-semibold mb-2">Production</h3>
-          <p class="text-gray-400">
-            On-location filming with professional gear and creative direction.
-          </p>
-        </a>
-
-        <!-- Post-Production -->
-        <a
-          href="pages/post-production.html"
-          class="block bg-gray-700 p-6 rounded-2xl shadow-lg hover:bg-gray-600 transition text-center"
-        >
-          <div class="flex justify-center mb-4">
-            <i data-feather="settings" class="h-10 w-10 text-blue-400"></i>
-          </div>
-          <h3 class="text-xl font-semibold mb-2">Post-Production</h3>
-          <p class="text-gray-400">
-            Editing, sound design, thumbnails, and SEO optimization for YouTube.
-          </p>
+          Book Consultation →
         </a>
       </div>
     </div>
-  </section>
-
-  <!-- Portfolio & Metrics -->
-  <section id="portfolio" class="py-16 px-6">
-    <div class="max-w-4xl mx-auto text-center">
-      <h2 class="text-2xl md:text-3xl font-bold mb-4">
-        Portfolio & Metrics
-      </h2>
-      <p class="text-gray-400 mb-6 text-sm md:text-base">
-        200+ videos produced • &gt;50% avg. watch time retention • 3× subscriber
-        growth for clients
-      </p>
-      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-        <img
-          src="images/thumb1.jpg"
-          alt="Project 1"
-          class="rounded-lg w-full shadow-md"
-        />
-        <img
-          src="images/thumb2.jpg"
-          alt="Project 2"
-          class="rounded-lg w-full shadow-md"
-        />
-        <img
-          src="images/thumb3.jpg"
-          alt="Project 3"
-          class="rounded-lg w-full shadow-md"
-        />
-      </div>
-    </div>
-  </section>
-
-  <!-- Most Popular Package -->
-  <section class="py-16 px-6 bg-gray-800 text-center">
-    <h2 class="text-2xl md:text-3xl font-bold mb-8">Most Popular Package</h2>
-    <div
-      class="inline-block bg-gray-700 p-8 rounded-2xl shadow-lg max-w-md w-full"
-    >
-      <div class="flex justify-center mb-6">
-        <i data-feather="clock" class="h-12 w-12 text-blue-400"></i>
-      </div>
-      <h3 class="text-2xl font-semibold text-white mb-2">
-        1-Hour YouTube Strategy Call
-      </h3>
-      <p class="text-4xl font-extrabold text-blue-300 mb-4">
-        $250 <span class="text-lg font-medium align-super">/ hr</span>
-      </p>
-      <p class="text-gray-300 mb-8 leading-relaxed">
-        A deep dive into your channel goals, content roadmap, and SEO-driven
-        growth strategy.
-      </p>
-      <a
-        href="pages/consultation.html"
-        class="inline-block px-8 py-3 bg-blue-600 hover:bg-blue-500 rounded-full font-semibold text-white transition"
-        >Book Consultation →</a
-      >
-    </div>
-  </section>
+  </div>
+</section>
 
   <!-- Footer -->
 <footer class="bg-gray-900 text-gray-400 py-6">
