@@ -173,7 +173,7 @@
   <div class="max-w-4xl mx-auto px-6 flex flex-col sm:flex-row items-center sm:justify-between space-y-4 sm:space-y-0">
     <!-- Left: Logo + tagline -->
     <div class="flex items-center space-x-2">
-      <img src="images/logo-small.png" alt="D.A.G. FILM Logo" class="h-8" />
+      <img src="/images/logo-small.png" alt="D.A.G. FILM Logo" class="h-8" />
       <span class="font-semibold text-white">Shoot. Edit. Grow.</span>
     </div>
 
@@ -203,41 +203,43 @@
 
     <!-- Right: Social links -->
     <div class="flex space-x-4 text-sm">
-      <a href="https://www.youtube.com/channel/UCGcgOlgWbHwZJZz1i8kYMGg" target="_blank" class="hover:text-white">YouTube</a>
-      <a href="https://www.instagram.com/d.a.g.film/" target="_blank" class="hover:text-white">Instagram</a>
+      <a href="https://www.youtube.com/channel/UCGcgOlgWbHwZJZz1i8kYMGg"
+         target="_blank"
+         class="hover:text-white"
+      >YouTube</a>
+      <a href="https://www.instagram.com/d.a.g.film/"
+         target="_blank"
+         class="hover:text-white"
+      >Instagram</a>
       <a href="#top" class="hover:text-white">Back to top</a>
     </div>
   </div>
 
   <!-- Copyright -->
-  <p class="mt-6 text-center text-xs text-gray-500">&copy; 2025 D.A.G. FILM. All rights reserved.</p>
+  <p class="mt-6 text-center text-xs text-gray-500">
+    &copy; 2025 D.A.G. FILM. All rights reserved.
+  </p>
 
-  <!-- Your success callback -->
+  <!-- MailerLite success callback & form-hijack script -->
   <script>
     function ml_webform_success_25476846() {
       const form = document.getElementById('subscribe-form');
       form.innerHTML = '<span class="text-white font-medium">Thanks for subscribing!</span>';
     }
 
-    // hijack the form submit and POST via fetch
     document.getElementById('subscribe-form')
       .addEventListener('submit', function(e) {
         e.preventDefault();
-        const form = this;
-        const data = new FormData(form);
-
-        fetch(form.action, {
+        const data = new FormData(this);
+        fetch(this.action, {
           method: 'POST',
-          body: data,
+          body: data
         })
         .then(r => r.json())
-        .then(json => {
-          if (json.success) {
-            ml_webform_success_25476846();
-          } else {
-            alert('Oops, something went wrong. Please try again.');
-          }
-        })
+        .then(json => json.success
+          ? ml_webform_success_25476846()
+          : alert('Oops, something went wrong. Please try again.')
+        )
         .catch(() => {
           alert('Network error — please try again in a moment.');
         });
