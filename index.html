@@ -1,121 +1,94 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
   <script src="https://cdn.tailwindcss.com"></script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Colton LeTellier • Consultant & Filmmaker</title>
-  <link href="https://unpkg.com/tailwindcss@^3/dist/tailwind.min.css" rel="stylesheet">
+  <!-- Tailwind Play CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Calendly Popup Widget -->
+  <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
 </head>
 <body class="bg-gray-900 text-white flex flex-col min-h-screen">
-  <!-- Navigation -->
-  <nav class="w-full px-8 py-4 flex justify-between items-center">
-    <a href="#" class="text-2xl font-bold">Colton LeTellier</a>
-    <ul class="flex space-x-6">
-      <li><a href="#about" class="hover:text-blue-400">About</a></li>
-      <li><a href="#services" class="hover:text-blue-400">Services</a></li>
-      <li><a href="#portfolio" class="hover:text-blue-400">Portfolio</a></li>
-      <li><a href="#contact" class="hover:text-blue-400">Contact</a></li>
-    </ul>
-  </nav>
 
-  <!-- Hero -->
-  <header class="flex-grow flex flex-col justify-center items-center text-center px-6">
+  <!-- Header / Hero -->
+  <header class="w-full py-8 px-6 bg-gray-800 flex flex-col items-center text-center">
     <h1 class="text-5xl md:text-6xl font-extrabold">Consultation • Shoot • Edit • SEO • Thumbnails</h1>
-    <p class="mt-4 text-xl text-gray-300">YouTube Videos for Creators & Marketing Videos for Small Biz</p>
-    <div class="mt-8 flex space-x-4">
-      <a href="#book" class="px-6 py-3 bg-blue-600 rounded-xl font-semibold hover:bg-blue-500">Schedule a Call</a>
-      <a href="#usd" class="px-6 py-3 bg-green-600 rounded-xl font-semibold hover:bg-green-500">Pay in USD</a>
-      <a href="#btc" class="px-6 py-3 border border-yellow-500 rounded-xl font-semibold hover:bg-yellow-600">Pay in BTC</a>
-    </div>
+    <p class="mt-4 text-lg text-gray-300">YouTube Videos for Creators & Marketing Videos for Small Biz</p>
+    <button onclick="Calendly.showPopupWidget('https://calendly.com/coltonletellier23/30min'); return false;"
+            class="mt-8 px-6 py-3 bg-blue-600 hover:bg-blue-500 rounded-xl font-semibold">
+      Schedule a Call
+    </button>
   </header>
 
-  <!-- About -->
-  <section id="about" class="px-8 py-16 bg-gray-800">
+  <!-- Sales Pitch (About) -->
+  <section id="about" class="py-16 px-6">
     <div class="max-w-3xl mx-auto text-center">
-      <h2 class="text-3xl font-bold">About Me</h2>
-      <p class="mt-4 text-gray-300">I'm Colton LeTellier, a Phoenix-based consultant and filmmaker specializing in YouTube strategy, video production, and post-production. I help creators and small businesses tell their story, engage audiences, and grow their channels.</p>
+      <h2 class="text-3xl font-bold">Why Work With Me?</h2>
+      <p class="mt-4 text-gray-300">
+        Stop spinning your wheels and start getting results. I craft videos that convert viewers into subscribers, leads, and customers—backed by data-driven strategies and a decade of production experience.
+      </p>
     </div>
   </section>
 
-  <!-- Services -->
-  <section id="services" class="px-8 py-16">
+  <!-- Services Overview -->
+  <section id="services" class="py-16 px-6 bg-gray-800">
     <div class="max-w-4xl mx-auto">
-      <h2 class="text-3xl font-bold text-center">Services</h2>
-      <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="bg-gray-800 p-6 rounded-2xl text-center">
+      <h2 class="text-3xl font-bold text-center mb-8">Services</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <a href="consultation.html" class="block bg-gray-700 p-6 rounded-2xl hover:bg-gray-600 text-center">
           <h3 class="text-xl font-semibold mb-2">Consultation</h3>
           <p class="text-gray-400">Strategy sessions for content planning, branding, and channel growth.</p>
-        </div>
-        <div class="bg-gray-800 p-6 rounded-2xl text-center">
+        </a>
+        <a href="production.html" class="block bg-gray-700 p-6 rounded-2xl hover:bg-gray-600 text-center">
           <h3 class="text-xl font-semibold mb-2">Production</h3>
           <p class="text-gray-400">On-location filming with professional gear and creative direction.</p>
-        </div>
-        <div class="bg-gray-800 p-6 rounded-2xl text-center">
+        </a>
+        <a href="post-production.html" class="block bg-gray-700 p-6 rounded-2xl hover:bg-gray-600 text-center">
           <h3 class="text-xl font-semibold mb-2">Post-Production</h3>
           <p class="text-gray-400">Editing, sound design, thumbnails, and SEO optimization for YouTube.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio & Metrics -->
+  <section id="portfolio" class="py-16 px-6">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-3xl font-bold mb-4">Portfolio & Metrics</h2>
+      <p class="text-gray-400 mb-8">
+        • 200+ videos produced  &nbsp; • &gt;50% average watch time retention  &nbsp; • 3× subscriber growth for clients
+      </p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+        <!-- Example thumbnails -->
+        <div class="rounded-lg overflow-hidden">
+          <img src="/path/to/thumb1.jpg" alt="Project Example 1" class="w-full">
+        </div>
+        <div class="rounded-lg overflow-hidden">
+          <img src="/path/to/thumb2.jpg" alt="Project Example 2" class="w-full">
+        </div>
+        <div class="rounded-lg overflow-hidden">
+          <img src="/path/to/thumb3.jpg" alt="Project Example 3" class="w-full">
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Portfolio -->
-  <section id="portfolio" class="px-8 py-16 bg-gray-800">
-    <div class="max-w-4xl mx-auto">
-      <h2 class="text-3xl font-bold text-center">Portfolio</h2>
-      <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-        <!-- Example Video Cards -->
-        <div class="rounded-xl overflow-hidden">
-          <img src="/path/to/thumb1.jpg" alt="Project 1" class="w-full">
-          <div class="p-4 bg-gray-900">
-            <h3 class="font-semibold">Project Title 1</h3>
-          </div>
-        </div>
-        <div class="rounded-xl overflow-hidden">
-          <img src="/path/to/thumb2.jpg" alt="Project 2" class="w-full">
-          <div class="p-4 bg-gray-900">
-            <h3 class="font-semibold">Project Title 2</h3>
-          </div>
-        </div>
-        <div class="rounded-xl overflow-hidden">
-          <img src="/path/to/thumb3.jpg" alt="Project 3" class="w-full">
-          <div class="p-4 bg-gray-900">
-            <h3 class="font-semibold">Project Title 3</h3>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Booking & Payments -->
-  <section id="contact" class="px-8 py-16">
-    <div class="max-w-2xl mx-auto space-y-12">
-      <!-- Scheduling -->
-      <div id="book">
-        <h2 class="text-2xl font-bold text-center mb-4">Book a Consultation</h2>
-        <div class="calendly-inline-widget" data-url="https://calendly.com/coltonletellier23/30min" style="min-width:320px;height:600px;"></div>
-      </div>
-      <!-- USD Payment -->
-      <div id="usd" class="text-center">
-        <h2 class="text-2xl font-bold mb-2">Pay in USD</h2>
-        <a href="https://buy.stripe.com/9AQdSw91WfeM7eg7ss" class="px-8 py-3 bg-green-600 rounded-xl font-semibold hover:bg-green-500">Pay with Stripe</a>
-      </div>
-      <!-- BTC Payment -->
-      <div id="btc" class="text-center">
-        <h2 class="text-2xl font-bold mb-2">Pay in Bitcoin</h2>
-        <script src="https://YOUR_BTCPAY_HOST/paybutton.js"></script>
-        <btcpay-button data-code="YOUR_BUTTON_CODE" data-paybutton="light"></btcpay-button>
-      </div>
-    </div>
+  <!-- Final CTA -->
+  <section class="py-16 px-6 bg-gray-800 text-center">
+    <h2 class="text-2xl font-bold mb-4">Ready to Level Up?</h2>
+    <button onclick="Calendly.showPopupWidget('https://calendly.com/coltonletellier23/30min'); return false;"
+            class="px-8 py-3 bg-blue-600 hover:bg-blue-500 rounded-xl font-semibold">
+      Schedule a Call
+    </button>
   </section>
 
   <!-- Footer -->
-  <footer class="w-full py-6 bg-gray-900 text-center text-gray-500">
+  <footer class="py-6 text-center text-gray-500">
     <p>&copy; 2025 Colton LeTellier. All rights reserved.</p>
     <p class="mt-2"><a href="mailto:contact@coltonletellier.com" class="hover:text-white">contact@coltonletellier.com</a></p>
   </footer>
 
-  <!-- Calendly Script -->
-  <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
 </body>
 </html>
