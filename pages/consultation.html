@@ -44,79 +44,68 @@
     </div>
   </header>
 
-  <!-- what we cover -->
-  <section id="consultation-details" class="py-16 px-6 bg-gray-800">
+ <!-- 1) Four content-cover cards -->
+<section id="consultation-details" class="py-16 px-6 bg-gray-800">
   <div class="max-w-4xl mx-auto">
     <h2 class="text-2xl md:text-3xl font-bold text-center text-white mb-8">
-      What We Can Cover
+      What We Cover
     </h2>
-    <div class="grid grid-cols-1 md:grid-cols-5 gap-6">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
       <!-- Pre-Production -->
       <div class="bg-gray-700 p-6 rounded-2xl shadow-lg text-center">
-        <div class="flex justify-center mb-4">
-          <i data-feather="sliders" class="h-10 w-10 text-blue-400"></i>
-        </div>
+        <i data-feather="sliders" class="h-10 w-10 text-blue-400 mb-4"></i>
         <h3 class="text-xl font-semibold text-white mb-2">Pre-Production</h3>
         <p class="text-gray-300 text-sm">
           We map out your shoot—from storyboarding & location scouting to shot lists & talent direction—so that when cameras roll, everything runs like clockwork.
         </p>
       </div>
-
       <!-- Content Planning -->
       <div class="bg-gray-700 p-6 rounded-2xl shadow-lg text-center">
-        <div class="flex justify-center mb-4">
-          <i data-feather="layout" class="h-10 w-10 text-blue-400"></i>
-        </div>
+        <i data-feather="layout" class="h-10 w-10 text-blue-400 mb-4"></i>
         <h3 class="text-xl font-semibold text-white mb-2">Content Planning</h3>
         <p class="text-gray-300 text-sm">
           Develop a data-driven roadmap: topic research, publishing cadence, and audience hooks that drive views, watch-time, and subscriptions.
         </p>
       </div>
-
       <!-- Branding -->
       <div class="bg-gray-700 p-6 rounded-2xl shadow-lg text-center">
-        <div class="flex justify-center mb-4">
-          <i data-feather="package" class="h-10 w-10 text-blue-400"></i>
-        </div>
+        <i data-feather="package" class="h-10 w-10 text-blue-400 mb-4"></i>
         <h3 class="text-xl font-semibold text-white mb-2">Branding</h3>
         <p class="text-gray-300 text-sm">
           Craft your unique channel identity—from visual style and tone of voice, to thumbnail design and on-screen graphics—to stand out in a crowded feed.
         </p>
       </div>
-
       <!-- Channel Growth -->
       <div class="bg-gray-700 p-6 rounded-2xl shadow-lg text-center">
-        <div class="flex justify-center mb-4">
-          <i data-feather="trending-up" class="h-10 w-10 text-blue-400"></i>
-        </div>
+        <i data-feather="trending-up" class="h-10 w-10 text-blue-400 mb-4"></i>
         <h3 class="text-xl font-semibold text-white mb-2">Channel Growth</h3>
         <p class="text-gray-300 text-sm">
           Optimize SEO, playlists, end-screens and community tactics to turn casual viewers into loyal subscribers—and ignite your long-term growth.
         </p>
       </div>
-
-      <!-- 1-Hour Strategy Call -->
-      <div class="bg-blue-600 p-6 rounded-2xl shadow-lg text-center col-span-1 md:col-span-1 flex flex-col justify-between">
-        <div>
-          <div class="flex justify-center mb-4">
-            <i data-feather="clock" class="h-12 w-12 text-white"></i>
-          </div>
-          <h3 class="text-2xl font-semibold text-white mb-2">1-Hour Strategy Call</h3>
-          <p class="text-blue-200 mb-6 text-sm">
-            A deep dive into your channel goals, content roadmap, and SEO-driven growth strategy.
-          </p>
-        </div>
-        <a
-          href="pages/consultation.html"
-          onclick="openSchedule()"
-          class="mt-4 inline-block px-6 py-2 bg-white text-blue-600 font-semibold rounded-full transition hover:bg-gray-100"
-        >
-          Book Consultation →
-        </a>
-      </div>
     </div>
   </div>
 </section>
+
+<!-- 2) Stand-alone Strategy Call card -->
+<section id="strategy-call" class="py-16 px-6 bg-gray-900">
+  <div class="max-w-md mx-auto text-center">
+    <div class="bg-blue-600 p-8 rounded-2xl shadow-lg">
+      <i data-feather="clock" class="h-12 w-12 text-white mb-6"></i>
+      <h3 class="text-2xl font-semibold text-white mb-4">1-Hour Strategy Call</h3>
+      <p class="text-blue-200 mb-6">
+        A deep dive into your channel goals, content roadmap, and SEO-driven growth strategy.
+      </p>
+      <button
+        onclick="openSchedule()"
+        class="bg-white text-blue-600 font-semibold px-6 py-2 rounded-full transition hover:bg-gray-100"
+      >
+        Book Consultation →
+      </button>
+    </div>
+  </div>
+</section>
+
 
   <!-- Footer -->
 <footer class="bg-gray-900 text-gray-400 py-6">
