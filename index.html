@@ -11,9 +11,13 @@
   <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
   <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
   <script>
-    // Open Calendly popup when user clicks button
-    function openSchedule() {
+    // Initialize the Calendly popup widget once
+    window.addEventListener('load', function() {
       Calendly.initPopupWidget({ url: 'https://calendly.com/coltonletellier23/30min' });
+    });
+
+    // Function to show the popup
+    function openSchedule() {
       Calendly.showPopupWidget();
       return false;
     }
