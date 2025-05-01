@@ -591,3 +591,69 @@
         .ml-form-formContent.horozintalForm .ml-button-horizontal.labelsOn { padding-top: 0px!important; }
 
       }
+
+/* ──────────────────────────────────────────────────────────────
+   Override MailerLite styles to match D.A.G. FILM dark theme
+────────────────────────────────────────────────────────────── */
+
+/* Container background, padding & shadow */
+#mlb2-25476846.ml-form-embedContainer .ml-form-embedWrapper {
+  background-color: #1F2937 !important; /* Tailwind gray-800 */
+  padding: 1.5rem !important;            /* similar to p-6 */
+  border-radius: 1rem !important;        /* rounded-2xl */
+  box-shadow: 0 10px 15px -3px rgba(0,0,0,0.4),
+              0 4px 6px -2px rgba(0,0,0,0.3) !important;
+}
+
+/* Input styling */
+#mlb2-25476846 input[type="email"].form-control {
+  background-color: #111827 !important; /* gray-900 */
+  color: #F9FAFB !important;            /* gray-50 */
+  border: none !important;
+  border-radius: .5rem !important;      /* rounded-lg */
+  padding: .75rem 1rem !important;
+  font-size: 1rem !important;
+  width: 100% !important;
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.5);
+}
+
+/* Placeholder color */
+#mlb2-25476846 input::placeholder {
+  color: #6B7280 !important; /* gray-400 */
+}
+
+/* Subscribe button */
+#mlb2-25476846 .ml-form-embedSubmit button.primary {
+  background-color: #2563EB !important; /* blue-600 */
+  color: #FFF !important;
+  font-weight: 600 !important;
+  font-size: 1rem !important;
+  padding: .75rem 1.5rem !important;
+  border-radius: .75rem !important;     /* rounded-xl */
+  border: none !important;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.3) !important;
+  transition: background-color .2s ease;
+}
+#mlb2-25476846 .ml-form-embedSubmit button.primary:hover {
+  background-color: #1E40AF !important; /* blue-800 */
+}
+
+/* Success message styling */
+#mlb2-25476846 .ml-form-successBody {
+  background-color: #1F2937 !important;
+  padding: 1.5rem !important;
+  border-radius: 1rem !important;
+  margin-top: 1rem !important;
+}
+#mlb2-25476846 .ml-form-successContent h4 {
+  color: #10B981 !important; /* emerald-500 */
+  margin-bottom: .5rem !important;
+}
+#mlb2-25476846 .ml-form-successContent p {
+  color: #D1D5DB !important; /* gray-300 */
+}
+
+/* Hide the default close “X” (if you’re not using it) */
+.ml-subscribe-close {
+  display: none !important;
+}
