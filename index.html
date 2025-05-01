@@ -7,13 +7,15 @@
   <!-- Tailwind Play CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Calendly CSS & JS for Popup -->
+  <!-- Calendly Popup Widget CSS & JS -->
   <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
   <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
   <script>
-    // Function to open Calendly popup on button click
+    // Open Calendly popup when user clicks button
     function openSchedule() {
-      Calendly.showPopupWidget({ url: 'https://calendly.com/coltonletellier23/30min' });
+      Calendly.initPopupWidget({ url: 'https://calendly.com/coltonletellier23/30min' });
+      Calendly.showPopupWidget();
+      return false;
     }
   </script>
 </head>
@@ -23,7 +25,7 @@
   <header class="w-full py-8 px-6 bg-gray-800 flex flex-col items-center text-center">
     <h1 class="text-5xl md:text-6xl font-extrabold">Consultation • Shoot • Edit • SEO • Thumbnails</h1>
     <p class="mt-4 text-lg text-gray-300">YouTube Videos for Creators & Marketing Videos for Small Biz</p>
-    <button onclick="openSchedule(); return false;"
+    <button onclick="return openSchedule();"
             class="mt-8 px-6 py-3 bg-blue-600 hover:bg-blue-500 rounded-xl font-semibold">
       Schedule a Call
     </button>
@@ -85,7 +87,7 @@
   <!-- Final CTA -->
   <section class="py-16 px-6 bg-gray-800 text-center">
     <h2 class="text-2xl font-bold mb-4">Ready to Level Up?</h2>
-    <button onclick="openSchedule(); return false;"
+    <button onclick="return openSchedule();"
             class="px-8 py-3 bg-blue-600 hover:bg-blue-500 rounded-xl font-semibold">
       Schedule a Call
     </button>
