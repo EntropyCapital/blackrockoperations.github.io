@@ -143,79 +143,79 @@
     </div>
   </section>
 
- <!-- Portfolio & Metrics as a horizontal slider -->
-<section id="portfolio" class="py-16 px-6">
-  <div class="max-w-4xl mx-auto text-center">
-    <h2 class="text-2xl md:text-3xl font-bold mb-4">
+ <section id="portfolio" class="py-16 px-6">
+  <div class="max-w-4xl mx-auto text-center mb-8">
+    <h2 class="text-2xl md:text-3xl font-bold text-white">
       Portfolio & Metrics
     </h2>
-    <p class="text-gray-400 mb-6 text-sm md:text-base">
-      200+ videos produced • &gt;50% avg. watch time retention • 3× subscriber growth for clients
-    </p>
-
-    <!-- Slider wrapper -->
-    <div class="relative">
-      <!-- Left/Right fade overlays (optional) -->
-      <div class="pointer-events-none absolute inset-y-0 left-0 w-12 bg-gradient-to-r from-gray-900 to-transparent"></div>
-      <div class="pointer-events-none absolute inset-y-0 right-0 w-12 bg-gradient-to-l from-gray-900 to-transparent"></div>
-
-      <!-- Scrollable row -->
-      <div
-        class="flex space-x-4 overflow-x-auto scroll-pl-6 snap-x snap-mandatory py-4"
-        style="scroll-behavior: smooth;"
-      >
-        <!-- slide item -->
-        <a
-          href="https://www.youtube.com/watch?v=omrgFmdrP-M&t=173s"
-          target="_blank"
-          class="snap-start flex-shrink-0 w-64"
-        >
-          <img
-            src="images/thumb1.jpg"
-            alt="Project 1"
-            class="rounded-lg w-full shadow-md transform transition-transform duration-200 hover:-translate-y-2"
-          />
-        </a>
-
-        <!-- duplicate/extend as many as you want -->
-        <a
-          href="https://www.youtube.com/watch?v=7NfJ7xdkRRo"
-          target="_blank"
-          class="snap-start flex-shrink-0 w-64"
-        >
-          <img
-            src="images/thumb2.jpg"
-            alt="Project 2"
-            class="rounded-lg w-full shadow-md transform transition-transform duration-200 hover:-translate-y-2"
-          />
-        </a>
-
-        <a
-          href="https://www.youtube.com/watch?v=0B8kPNjMELg&t=343s"
-          target="_blank"
-          class="snap-start flex-shrink-0 w-64"
-        >
-          <img
-            src="images/thumb3.jpg"
-            alt="Project 3"
-            class="rounded-lg w-full shadow-md transform transition-transform duration-200 hover:-translate-y-2"
-          />
-        </a>
-
-        <!-- example of adding more -->
-        <a href="#" class="snap-start flex-shrink-0 w-64">
-          <img
-            src="images/thumb4.jpg"
-            alt="Project 4"
-            class="rounded-lg w-full shadow-md transform transition-transform duration-200 hover:-translate-y-2"
-          />
-        </a>
-        <!-- …and so on -->
-        
-      </div>
-    </div>
   </div>
+  <div
+    id="youtube-video-grid"
+    class="max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6"
+  ></div>
 </section>
+
+<script>
+  // 1) Your API key and the three video IDs
+  const API_KEY = 'AIzaSyCTQ5t3UwmWs1lHoEB33rQOcB8zeXoDGbo';
+  const videoIds = [
+    'omrgFmdrP-M',
+    '7NfJ7xdkRRo',
+    '0B8kPNjMELg'
+  ];
+
+  // 2) Fetch snippet+statistics for each ID
+  async function fetchVideo(id) {
+    const url = new URL('https://www.googleapis.com/youtube/v3/videos');
+    url.search = new URLSearchParams({
+      part: 'snippet,statistics',
+      id,
+      key: API_KEY
+    });
+    const res = await fetch(url);
+    const data = await res.json();
+    return data.items?.[0];
+  }
+
+  // 3) Build each card and insert into the grid
+  async function renderVideos() {
+    const container = document.getElementById('youtube-video-grid');
+    for (let id of videoIds) {
+      const vid = await fetchVideo(id);
+      if (!vid) continue;
+
+      const thumb = vid.snippet.thumbnails.high.url;
+      const title = vid.snippet.title;
+      const views = Number(vid.statistics.viewCount).toLocaleString();
+      const href  = `https://www.youtube.com/watch?v=${id}`;
+
+      container.insertAdjacentHTML('beforeend', `
+        <a
+          href="${href}"
+          target="_blank"
+          class="block bg-gray-800 rounded-xl overflow-hidden transform hover:-translate-y-1 transition-shadow hover:shadow-xl"
+        >
+          <img
+            src="${thumb}"
+            alt="${title}"
+            class="w-full h-auto"
+          />
+          <div class="p-4">
+            <h3 class="text-white text-lg font-semibold mb-1">
+              ${title}
+            </h3>
+            <p class="text-gray-400 text-sm">
+              ${views} views
+            </p>
+          </div>
+        </a>
+      `);
+    }
+  }
+
+  // 4) Kick it off
+  renderVideos();
+</script>
   
   <!-- Most Popular Package -->
   <section class="py-16 px-6 bg-gray-800 text-center">
