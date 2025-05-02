@@ -143,12 +143,18 @@
     </div>
   </section>
 
- <section id="portfolio" class="py-16 px-6">
-  <div class="max-w-4xl mx-auto text-center mb-8">
+ <!-- ───── YouTube Video Grid ───── -->
+<section id="portfolio" class="py-16 px-6">
+  <div class="max-w-4xl mx-auto text-center mb-4">
     <h2 class="text-2xl md:text-3xl font-bold text-white">
-      Portfolio & Metrics
+      Portfolio &amp; Metrics
     </h2>
+    <!-- ← re-added metrics line -->
+    <p class="text-gray-400 mt-2">
+      200+ videos produced • &gt;50% avg. watch time retention • 3× subscriber growth for clients
+    </p>
   </div>
+
   <div
     id="youtube-video-grid"
     class="max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6"
@@ -156,28 +162,20 @@
 </section>
 
 <script>
-  // 1) Your API key and the three video IDs
   const API_KEY = 'AIzaSyCTQ5t3UwmWs1lHoEB33rQOcB8zeXoDGbo';
-  const videoIds = [
-    'omrgFmdrP-M',
-    '7NfJ7xdkRRo',
-    '0B8kPNjMELg'
-  ];
+  const videoIds = ['omrgFmdrP-M','7NfJ7xdkRRo','0B8kPNjMELg'];
 
-  // 2) Fetch snippet+statistics for each ID
   async function fetchVideo(id) {
     const url = new URL('https://www.googleapis.com/youtube/v3/videos');
     url.search = new URLSearchParams({
       part: 'snippet,statistics',
-      id,
-      key: API_KEY
+      id, key: API_KEY
     });
     const res = await fetch(url);
     const data = await res.json();
     return data.items?.[0];
   }
 
-  // 3) Build each card and insert into the grid
   async function renderVideos() {
     const container = document.getElementById('youtube-video-grid');
     for (let id of videoIds) {
@@ -195,11 +193,14 @@
           target="_blank"
           class="block bg-gray-800 rounded-xl overflow-hidden transform hover:-translate-y-1 transition-shadow hover:shadow-xl"
         >
-          <img
-            src="${thumb}"
-            alt="${title}"
-            class="w-full h-auto"
-          />
+          <!-- force 16:9 and cover -->
+          <div class="w-full aspect-video bg-black">
+            <img
+              src="${thumb}"
+              alt="${title}"
+              class="w-full h-full object-cover"
+            />
+          </div>
           <div class="p-4">
             <h3 class="text-white text-lg font-semibold mb-1">
               ${title}
@@ -213,7 +214,6 @@
     }
   }
 
-  // 4) Kick it off
   renderVideos();
 </script>
   
