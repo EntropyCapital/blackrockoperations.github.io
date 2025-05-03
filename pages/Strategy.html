@@ -5,12 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>Strategy | D.A.G. FILM</title>
 
+  <!-- Favicon -->
   <link
-  rel="icon"
-  type="image/png"
-  sizes="32x32"
-  href="/images/favicon.png"
-/>
+    rel="icon"
+    type="image/png"
+    sizes="32x32"
+    href="/images/favicon.png"
+  />
 
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -18,7 +19,10 @@
   <script src="https://unpkg.com/feather-icons"></script>
 
   <!-- Calendly Popup Styles & Script (for nav button) -->
-  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet"/>
+  <link
+    href="https://assets.calendly.com/assets/external/widget.css"
+    rel="stylesheet"
+  />
   <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
 
   <!-- MailerLite Embed Styles (footer subscribe) -->
@@ -33,11 +37,19 @@
   </script>
 </head>
 
-<body class="bg-gray-900 text-white flex flex-col min-h-screen">
+<body class="bg-gray-900 text-white">
+
   <!-- NAV -->
-  <nav class="sticky top-0 z-50 bg-gray-900 bg-opacity-90 backdrop-blur-md flex items-center justify-between px-6 py-4">
+  <nav
+    class="sticky top-0 z-50 bg-gray-900 bg-opacity-90 backdrop-blur-md
+           flex items-center justify-between px-6 py-4"
+  >
     <a href="/index.html">
-      <img src="/images/logo-small.png" alt="D.A.G. FILM Logo" class="h-10">
+      <img
+        src="/images/logo-small.png"
+        alt="D.A.G. FILM Logo"
+        class="h-10"
+      />
     </a>
     <button
       onclick="openSchedule()"
@@ -47,74 +59,116 @@
     </button>
   </nav>
 
-   <!-- HERO -->
-  <header id="top" class="w-full h-96 bg-center bg-cover" style="background-image: url('/images/consultation-hero.jpg')">
-    <div class="bg-gray-900 bg-opacity-70 w-full h-full flex flex-col items-center justify-center text-center px-4">
+  <!-- HERO -->
+  <header
+    id="top"
+    class="w-full h-96 bg-center bg-cover"
+    style="background-image: url('/images/consultation-hero.jpg')"
+  >
+    <div
+      class="bg-gray-900 bg-opacity-70 w-full h-full flex flex-col
+             items-center justify-center text-center px-4"
+    >
       <h1 class="text-4xl font-extrabold">Strategy</h1>
       <p class="mt-2 text-gray-200">
         Sessions for content planning, branding, and channel growth.
       </p>
     </div>
   </header>
-  
- 
 
   <!-- WHAT WE COVER (4 CARDS) -->
   <section id="consultation-details" class="py-16 px-6 bg-gray-800">
     <div class="max-w-4xl mx-auto">
-      <h2 class="text-2xl md:text-3xl font-bold text-center text-white mb-8">
+      <h2
+        class="text-2xl md:text-3xl font-bold text-center text-white mb-8"
+      >
         What We Can Cover
       </h2>
       <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
         <!-- Pre-Production -->
         <div class="bg-gray-700 p-6 rounded-2xl shadow-lg text-center">
-          <i data-feather="sliders" class="h-10 w-10 text-blue-400 block mx-auto"></i>
-          <h3 class="text-xl font-semibold text-white mb-2">Pre-Production</h3>
+          <i
+            data-feather="sliders"
+            class="h-10 w-10 text-blue-400 block mx-auto mb-4"
+          ></i>
+          <h3 class="text-xl font-semibold text-white mb-2">
+            Pre-Production
+          </h3>
           <p class="text-gray-300 text-sm">
-            We map out your shoot—from storyboarding & location scouting to shot lists & talent direction—so that when cameras roll, everything runs like clockwork.
+            We map out your shoot—from storyboarding & location scouting to
+            shot lists & talent direction—so that when cameras roll, everything
+            runs like clockwork.
           </p>
         </div>
+
         <!-- Content Planning -->
         <div class="bg-gray-700 p-6 rounded-2xl shadow-lg text-center">
-          <i data-feather="layout" class="h-10 w-10 text-blue-400 block mx-auto"></i>
-          <h3 class="text-xl font-semibold text-white mb-2">Content Planning</h3>
+          <i
+            data-feather="layout"
+            class="h-10 w-10 text-blue-400 block mx-auto mb-4"
+          ></i>
+          <h3 class="text-xl font-semibold text-white mb-2">
+            Content Planning
+          </h3>
           <p class="text-gray-300 text-sm">
-            Develop a data-driven roadmap: topic research, publishing cadence, and audience hooks that drive views, watch-time, and subscriptions.
+            Develop a data-driven roadmap: topic research, publishing cadence,
+            and audience hooks that drive views, watch-time, and subscriptions.
           </p>
         </div>
+
         <!-- Branding -->
         <div class="bg-gray-700 p-6 rounded-2xl shadow-lg text-center">
-          <i data-feather="package" class="h-10 w-10 text-blue-400 block mx-auto"></i>
+          <i
+            data-feather="package"
+            class="h-10 w-10 text-blue-400 block mx-auto mb-4"
+          ></i>
           <h3 class="text-xl font-semibold text-white mb-2">Branding</h3>
           <p class="text-gray-300 text-sm">
-            Craft your unique channel identity—from visual style and tone of voice, to thumbnail design and on-screen graphics—to stand out in a crowded feed.
+            Craft your unique channel identity—from visual style and tone of
+            voice, to thumbnail design and on-screen graphics—to stand out in a
+            crowded feed.
           </p>
         </div>
+
         <!-- Channel Growth -->
         <div class="bg-gray-700 p-6 rounded-2xl shadow-lg text-center">
-          <i data-feather="trending-up" class="h-10 w-10 text-blue-400 block mx-auto"></i>
-          <h3 class="text-xl font-semibold text-white mb-2">Channel Growth</h3>
+          <i
+            data-feather="trending-up"
+            class="h-10 w-10 text-blue-400 block mx-auto mb-4"
+          ></i>
+          <h3 class="text-xl font-semibold text-white mb-2">
+            Channel Growth
+          </h3>
           <p class="text-gray-300 text-sm">
-            Optimize SEO, playlists, end-screens and community tactics to turn casual viewers into loyal subscribers—and ignite your long-term growth.
+            Optimize SEO, playlists, end-screens and community tactics to turn
+            casual viewers into loyal subscribers—and ignite your long-term
+            growth.
           </p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- STRATEGY CALL (Standalone Below) -->
+  <!-- 1-HOUR STRATEGY CALL -->
   <section id="strategy-call" class="py-16 px-6 bg-gray-900">
     <div class="max-w-md mx-auto text-center">
       <div class="bg-blue-600 p-8 rounded-2xl shadow-lg">
-        <i data-feather="clock" class="h-12 w-12 text-white block mx-auto"></i>
-        <h3 class="text-2xl font-semibold text-white mb-4">1-Hour Strategy Call</h3>
+        <i
+          data-feather="clock"
+          class="h-12 w-12 text-white block mx-auto mb-4"
+        ></i>
+        <h3 class="text-2xl font-semibold text-white mb-4">
+          1-Hour Strategy Call
+        </h3>
         <p class="text-blue-200 mb-6">
-          A deep dive into your channel goals, content roadmap, and SEO-driven growth strategy.
+          A deep dive into your channel goals, content roadmap, and SEO-driven
+          growth strategy.
         </p>
         <!-- Stripe link for $250 -->
         <a
           href="https://buy.stripe.com/6oE7u8a60c2AgOQ5kl"
-          class="inline-block bg-white text-blue-600 font-semibold px-6 py-2 rounded-full transition hover:bg-gray-100"
+          class="inline-block bg-white text-blue-600 font-semibold
+                 px-6 py-2 rounded-full transition hover:bg-gray-100"
         >
           Book Consultation →
         </a>
@@ -122,94 +176,79 @@
     </div>
   </section>
 
-  <!-- Footer -->
-<footer class="bg-gray-900 text-gray-400 py-6">
-  <div
-    class="max-w-4xl mx-auto flex flex-col sm:flex-row items-center sm:justify-between px-6 space-y-4 sm:space-y-0"
-  >
-     <!-- Logo + tagline in footer -->
-   <div class="flex items-center space-x-2">
-    <img src="/images/logo-small.png" alt="D.A.G. FILM Logo" class="h-8" />
-     <span class="font-semibold text-white">Shoot. Edit. Grow.</span>
-   </div>
-
-    <!-- Inline subscribe form -->
-    <form
-      id="subscribe-form"
-      class="flex items-center space-x-2"
-      action="https://assets.mailerlite.com/jsonp/1491826/forms/153219461605754013/subscribe"
-      method="post"
+  <!-- FOOTER -->
+  <footer class="bg-gray-900 text-gray-400 py-6">
+    <div
+      class="max-w-4xl mx-auto flex flex-col sm:flex-row items-center
+             sm:justify-between px-6 space-y-4 sm:space-y-0"
     >
-      <input
-        type="email"
-        name="fields[email]"
-        required
-        placeholder="Your email"
-        class="bg-gray-800 text-gray-200 placeholder-gray-500 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-      />
-      <button
-        type="submit"
-        class="bg-blue-600 hover:bg-blue-500 text-white font-semibold rounded-lg px-4 py-2 transition-shadow shadow-md"
-      >
-        Subscribe
-      </button>
-      <input type="hidden" name="ml-submit" value="1" />
-      <input type="hidden" name="anticsrf" value="true" />
-    </form>
+      <!-- Logo + tagline in footer -->
+      <div class="flex items-center space-x-2">
+        <img
+          src="/images/logo-small.png"
+          alt="D.A.G. FILM Logo"
+          class="h-8"
+        />
+        <span class="font-semibold text-white">Shoot. Edit. Grow.</span>
+      </div>
 
-    <!-- Social links -->
-    <div class="flex space-x-4 text-sm">
-      <a
-        href="https://www.youtube.com/channel/UCGcgOlgWbHwZJZz1i8kYMGg"
-        target="_blank"
-        class="hover:text-white"
-        >YouTube</a
+      <!-- Inline subscribe form -->
+      <form
+        id="subscribe-form"
+        class="flex items-center space-x-2"
+        action="https://assets.mailerlite.com/jsonp/1491826/forms/153219461605754013/subscribe"
+        method="post"
       >
-      <a
-        href="https://www.instagram.com/d.a.g.film/"
-        target="_blank"
-        class="hover:text-white"
-        >Instagram</a
-      >
-      <a
-        href="https://discord.gg/fqnyEZ9N"
-        target="_blank"
-        class="hover:text-white"
-        >Discord</a
-      >
-      <a href="#top" class="hover:text-white">Back to top</a>
+        <input
+          type="email"
+          name="fields[email]"
+          required
+          placeholder="Your email"
+          class="bg-gray-800 text-gray-200 placeholder-gray-500
+                 rounded-lg px-4 py-2 focus:outline-none
+                 focus:ring-2 focus:ring-blue-500"
+        />
+        <button
+          type="submit"
+          class="bg-blue-600 hover:bg-blue-500 text-white
+                 font-semibold rounded-lg px-4 py-2
+                 transition-shadow shadow-md"
+        >
+          Subscribe
+        </button>
+        <input type="hidden" name="ml-submit" value="1" />
+        <input type="hidden" name="anticsrf" value="true" />
+      </form>
+
+      <!-- Social links -->
+      <div class="flex space-x-4 text-sm">
+        <a
+          href="https://www.youtube.com/channel/UCGcgOlgWbHwZJZz1i8kYMGg"
+          target="_blank"
+          class="hover:text-white"
+          >YouTube</a
+        >
+        <a
+          href="https://www.instagram.com/d.a.g.film/"
+          target="_blank"
+          class="hover:text-white"
+          >Instagram</a
+        >
+        <a
+          href="https://discord.gg/fqnyEZ9N"
+          target="_blank"
+          class="hover:text-white"
+          >Discord</a
+        >
+        <a href="#top" class="hover:text-white">Back to top</a>
+      </div>
     </div>
-  </div>
-  <p class="mt-6 text-center text-xs text-gray-500">
-    &copy; 2025 D.A.G. FILM. All rights reserved.
-  </p>
+    <p class="mt-6 text-center text-xs text-gray-500">
+      &copy; 2025 D.A.G. FILM. All rights reserved.
+    </p>
+  </footer>
 
-  <script>
-    function ml_webform_success_25476846() {
-      const form = document.getElementById("subscribe-form");
-      form.innerHTML =
-        '<span class="text-white font-medium">Thanks for subscribing!</span>';
-    }
-    document
-      .getElementById("subscribe-form")
-      .addEventListener("submit", function (e) {
-        e.preventDefault();
-        const data = new FormData(this);
-        fetch(this.action, { method: "POST", body: data })
-          .then((r) => r.json())
-          .then((json) =>
-            json.success
-              ? ml_webform_success_25476846()
-              : alert("Oops, something went wrong. Please try again.")
-          )
-          .catch(() =>
-            alert("Network error — please try again in a moment.")
-          );
-      });
-  </script>
-</footer>
-
-  <!-- Activate Feather Icons -->
+  <!-- Feather Icons replace -->
   <script>feather.replace({ "stroke-width": 2 });</script>
 </body>
 </html>
