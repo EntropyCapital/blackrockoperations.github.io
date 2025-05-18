@@ -18,19 +18,11 @@
   <script src="https://unpkg.com/feather-icons"></script>
 
   <!-- Flatpickr date-picker -->
-<link
-  rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"
-/>
-<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-
-<!-- Flatpickr “OK” button plugin -->
-<link
-  rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/flatpickr/dist/plugins/confirmDate/confirmDate.css"
-/>
-<script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/plugins/confirmDate/confirmDate.js"></script>
-
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <!-- Flatpickr “OK” button plugin -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/plugins/confirmDate/confirmDate.css" />
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/plugins/confirmDate/confirmDate.js"></script>
 
   <!-- Stripe.js -->
   <script src="https://js.stripe.com/v3/"></script>
@@ -45,49 +37,27 @@
     <a href="#top">
       <img src="images/logo-small.png" alt="D.A.G. FILM Logo" class="h-10" />
     </a>
-    <button id="open-booking" class="px-5 py-2 bg-blue-600 hover:bg-blue-500 rounded-full font-semibold">
+    <button class="open-booking px-5 py-2 bg-blue-600 hover:bg-blue-500 rounded-full font-semibold">
       Schedule a Call
     </button>
   </nav>
 
   <!-- Booking Modal -->
-<div
-  id="booking-modal"
-  class="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center p-4 z-[9999] hidden"
->
-  <div
-    class="relative bg-gray-800 rounded-xl p-6 max-w-md w-full space-y-4"
-  >
-    <!-- X Close -->
-    <button
-      id="close-booking"
-      class="absolute top-4 right-4 text-gray-400 hover:text-white text-2xl leading-none"
-    >&times;</button>
+  <div id="booking-modal" class="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center p-4 z-[9999] hidden">
+    <div class="relative bg-gray-800 rounded-xl p-6 max-w-md w-full space-y-4">
+      <!-- X Close -->
+      <button id="close-booking" class="absolute top-4 right-4 text-gray-400 hover:text-white text-2xl leading-none">&times;</button>
 
-    <h3 class="text-xl font-semibold">Choose Date &amp; Time</h3>
-    <input
-      id="slotpicker"
-      placeholder="Select date & time"
-      class="w-full p-3 rounded-lg text-gray-900"
-    />
-    <input
-      id="email-input"
-      type="email"
-      placeholder="Your email"
-      class="w-full p-3 rounded-lg text-gray-900"
-    />
+      <h3 class="text-xl font-semibold">Choose Date &amp; Time</h3>
+      <input id="slotpicker" placeholder="Select date & time" class="w-full p-3 rounded-lg text-gray-900" />
+      <input id="email-input" type="email" placeholder="Your email" class="w-full p-3 rounded-lg text-gray-900" />
 
-    <!-- Pay & Book -->
-    <button
-      id="confirm-btn"
-      disabled
-      class="w-full py-3 bg-blue-600 hover:bg-blue-500 rounded-full font-semibold transition disabled:opacity-50"
-    >
-      Pay &amp; Book
-    </button>
+      <!-- Pay & Book -->
+      <button id="confirm-btn" disabled class="w-full py-3 bg-blue-600 hover:bg-blue-500 rounded-full font-semibold transition disabled:opacity-50">
+        Pay &amp; Book
+      </button>
+    </div>
   </div>
-</div>
-
 
   <!-- Hero Section -->
   <header id="top" class="w-full h-96 bg-center bg-no-repeat bg-cover" style="background-image: url('images/hero-background.jpg');">
@@ -132,7 +102,7 @@
     </div>
   </section>
 
-  <!-- Portfolio → Videos Grid (unchanged) -->
+  <!-- Portfolio → Videos Grid -->
   <section id="portfolio" class="py-16 px-6">
     <div class="max-w-4xl mx-auto text-center mb-4">
       <h2 class="text-2xl md:text-3xl font-bold text-white">Portfolio &amp; Metrics</h2>
@@ -141,7 +111,7 @@
     <div id="youtube-video-grid" class="max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6"></div>
   </section>
 
-  <!-- Render YouTube Videos JS (unchanged) -->
+  <!-- Render YouTube Videos JS -->
   <script>
     const API_KEY = 'AIzaSyCTQ5t3UwmWs1lHoEB33rQOcB8zeXoDGbo';
     const videoIds = ['omrgFmdrP-M','yaZh7ME1w7E','0B8kPNjMELg'];
@@ -162,16 +132,15 @@
         const views = Number(vid.statistics.viewCount).toLocaleString();
         const href = `https://www.youtube.com/watch?v=${id}`;
         container.insertAdjacentHTML('beforeend', `
-          <a href="${href}" target="_blank" class="block bg-gray-800 rounded-xl overflow-hidden transform hover:-translate-y-1 transition-shadow hover:shadow-xl">
-            <div class="w-full aspect-video bg-black">
-              <img src="${thumb}" alt="${title}" class="w-full h-full object-cover"/>
-            </div>
-            <div class="p-4">
-              <h3 class="text-white text-lg font-semibold mb-1">${title}</h3>
-              <p class="text-gray-400 text-sm">${views} views</p>
-            </div>
-          </a>
-        `);
+          <a href="${href}" target="_blank" class="block bg-gray-800 rounded-xl overflow-hidden transform hover:-translate-y-1 transition-shadow hover:shadow-xl">` +
+          `<div class="w-full aspect-video bg-black">` +
+            `<img src="${thumb}" alt="${title}" class="w-full h-full object-cover"/>` +
+          `</div>` +
+          `<div class="p-4">` +
+            `<h3 class="text-white text-lg font-semibold mb-1">${title}</h3>` +
+            `<p class="text-gray-400 text-sm">${views} views</p>` +
+          `</div>` +
+        `</a>`);
       }
     }
     renderVideos();
@@ -185,56 +154,89 @@
       <h3 class="text-2xl font-semibold text-white mb-2">1-Hour YouTube Strategy Call</h3>
       <p class="text-4xl font-extrabold text-blue-300 mb-4">$250 <span class="text-lg font-medium align-super">/ hr</span></p>
       <p class="text-gray-300 mb-8 leading-relaxed">A deep dive into your channel goals, content roadmap, and SEO-driven growth strategy.</p>
-      <button id="open-booking" class="inline-block px-8 py-3 bg-blue-600 hover:bg-blue-500 rounded-full font-semibold text-white transition">Schedule a Call</button>
+      <button class="open-booking inline-block px-8 py-3 bg-blue-600 hover:bg-blue-500 rounded-full font-semibold text-white transition">Schedule a Call</button>
     </div>
   </section>
 
-  <!-- Footer (unchanged) -->
+  <!-- Footer -->
   <footer class="bg-gray-900 text-gray-400 py-6 mt-auto">
-    <!-- existing footer content -->
+    <div class="max-w-4xl mx-auto flex flex-col sm:flex-row items-center sm:justify-between px-6 space-y-4 sm:space-y-0">
+      <!-- Logo + tagline -->
+      <div class="flex items-center space-x-2">
+        <img src="images/logo-small.png" alt="D.A.G. FILM Logo" class="h-8" />
+        <span class="font-semibold text-white">Shoot. Edit. Grow.</span>
+      </div>
+
+      <!-- Inline subscribe form -->
+      <form id="subscribe-form" class="flex items-center space-x-2" action="https://assets.mailerlite.com/jsonp/1491826/forms/153219461605754013/subscribe" method="post">
+        <input type="email" name="fields[email]" required placeholder="Your email" class="bg-gray-800 text-gray-200 placeholder-gray-500 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+        <button type="submit" class="bg-blue-600 hover:bg-blue-500 text-white font-semibold rounded-lg px-4 py-2 transition-shadow shadow-md">Subscribe</button>
+        <input type="hidden" name="ml-submit" value="1" />
+        <input type="hidden" name="anticsrf" value="true" />
+      </form>
+
+      <!-- Social links -->
+      <div class="flex space-x-4 text-sm">
+        <a href="https://www.youtube.com/channel/UCGcgOlgWbHwZJZz1i8kYMGg" target="_blank" class="hover:text-white">YouTube</a>
+        <a href="https://www.instagram.com/d.a.g.film/" target="_blank" class="hover:text-white">Instagram</a>
+        <a href="https://discord.gg/fqnyEZ9N" target="_blank" class="hover:text-white">Discord</a>
+        <a href="#top" class="hover:text-white">Back to top</a>
+      </div>
+    </div>
+    <p class="mt-6 text-center text-xs text-gray-500">&copy; 2025 D.A.G. FILM. All rights reserved.</p>
+    <script>
+      function ml_webform_success_25476846() {
+        const form = document.getElementById("subscribe-form");
+        form.innerHTML = '<span class="text-white font-medium">Thanks for subscribing!</span>';
+      }
+      document.getElementById("subscribe-form").addEventListener("submit", function(e) {
+        e.preventDefault();
+        const data = new FormData(this);
+        fetch(this.action, { method: "POST", body: data })
+          .then(r => r.json())
+          .then(json => json.success ? ml_webform_success_25476846() : alert("Oops, something went wrong. Please try again."))
+          .catch(() => alert("Network error — please try again in a moment."));
+      });
+    </script>
   </footer>
 
   <!-- Booking Logic & Scripts -->
   <script>
-  // 1) Initialize the date-picker with an OK button
-  flatpickr('#slotpicker', {
-    enableTime: true,
-    minDate: 'today',
-    plugins: [new confirmDatePlugin({ confirmText: 'OK' })],
-    onChange: (dates) => {
-      selectedSlot = dates[0].toISOString();
-      document.getElementById('confirm-btn').disabled = false;
-    }
-  });
-
-  // 2) Use your real Stripe Publishable key here
-  const stripe = Stripe('pk_live_51RJdkFKPt2aVTNdu3HUo75PoMDJHMPtSMQ9ggbFLSLBNxH0ufmOy8axlqisikDfPxvv7YMnINEkUy2amuvj6PCli000PhNTRAj');
-  let selectedSlot = null;
-
-  // 3) Only open/close the modal with explicit buttons
-  document.getElementById('open-booking').onclick = () => {
-    document.getElementById('booking-modal').classList.remove('hidden');
-  };
-  document.getElementById('close-booking').onclick = () => {
-    document.getElementById('booking-modal').classList.add('hidden');
-  };
-
-  // 4) Create a Checkout session and redirect
-  document.getElementById('confirm-btn').onclick = async () => {
-    const email = document.getElementById('email-input').value;
-    const res = await fetch('/api/create-checkout-session', {
-      method: 'POST',
-      headers: {'Content-Type':'application/json'},
-      body: JSON.stringify({ email, slot: selectedSlot })
+    let selectedSlot = null;
+    // Initialize the date-picker with OK button
+    flatpickr('#slotpicker', {
+      enableTime: true,
+      minDate: 'today',
+      plugins: [new confirmDatePlugin({ confirmText: 'OK' })],
+      onChange: (dates) => {
+        selectedSlot = dates[0].toISOString();
+        document.getElementById('confirm-btn').disabled = false;
+      }
     });
-    const { id } = await res.json();
-    // this will now actually redirect to Stripe
-    await stripe.redirectToCheckout({ sessionId: id });
-  };
 
-  // 5) Feather Icons
-  feather.replace({ 'stroke-width': 2 });
-</script>
+    // Initialize Stripe
+    const stripe = Stripe('pk_live_51RJdkFKPt2aVTNdu3HUo75PoMDJHMPtSMQ9ggbFLSLBNxH0ufmOy8axlqisikDfPxvv7YMnINEkUy2amuvj6PCli000PhNTRAj');
 
+    // Open & close modal (nav + bottom)
+    document.querySelectorAll('.open-booking').forEach(btn => btn.addEventListener('click', () => {
+      document.getElementById('booking-modal').classList.remove('hidden');
+    }));
+    document.getElementById('close-booking').onclick = () => document.getElementById('booking-modal').classList.add('hidden');
+
+    // Create Checkout session & redirect
+    document.getElementById('confirm-btn').onclick = async () => {
+      const email = document.getElementById('email-input').value;
+      const res = await fetch('/api/create-checkout-session', {
+        method: 'POST',
+        headers: {'Content-Type':'application/json'},
+        body: JSON.stringify({ email, slot: selectedSlot })
+      });
+      const { id } = await res.json();
+      await stripe.redirectToCheckout({ sessionId: id });
+    };
+
+    // Feather Icons
+    feather.replace({ 'stroke-width': 2 });
+  </script>
 </body>
 </html>
