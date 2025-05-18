@@ -62,13 +62,269 @@
     </div>
   </header>
 
-  <!-- Rest of your content... -->
-  <!-- (Why Work With Me, Services, Portfolio, etc.) -->
+  <!-- Why Work With Me -->
+  <section id="about" class="py-16 px-6">
+    <div class="max-w-3xl mx-auto text-center">
+      <h2 class="text-2xl md:text-3xl font-bold">Why Work With Me?</h2>
+      <p class="mt-4 text-gray-300">
+        Stop spinning your wheels and start getting results. I craft videos that
+        convert viewers into subscribers, leads, and customers—backed by
+        data-driven strategies and a decade of production experience.
+      </p>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section id="services" class="py-16 px-6 bg-gray-800">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-2xl md:text-3xl font-bold text-center mb-8">
+        Services
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Strategy -->
+        <a
+          href="pages/Strategy.html"
+          class="block bg-gray-700 p-6 rounded-2xl shadow-lg hover:bg-gray-600 transition text-center"
+        >
+          <div class="flex justify-center mb-4">
+            <i
+              data-feather="message-circle"
+              class="h-10 w-10 text-blue-400"
+            ></i>
+          </div>
+          <h3 class="text-xl font-semibold mb-2">Strategy</h3>
+          <p class="text-gray-400">
+            Sessions for content planning, branding, and channel growth.
+          </p>
+        </a>
+
+        <!-- Production -->
+        <a
+          href="pages/production.html"
+          class="block bg-gray-700 p-6 rounded-2xl shadow-lg hover:bg-gray-600 transition text-center"
+        >
+          <div class="flex justify-center mb-4">
+            <i data-feather="camera" class="h-10 w-10 text-blue-400"></i>
+          </div>
+          <h3 class="text-xl font-semibold mb-2">Production</h3>
+          <p class="text-gray-400">
+            On-location filming with professional gear and creative direction.
+          </p>
+        </a>
+
+        <!-- Post-Production -->
+        <a
+          href="pages/post-production.html"
+          class="block bg-gray-700 p-6 rounded-2xl shadow-lg hover:bg-gray-600 transition text-center"
+        >
+          <div class="flex justify-center mb-4">
+            <i data-feather="settings" class="h-10 w-10 text-blue-400"></i>
+          </div>
+          <h3 class="text-xl font-semibold mb-2">Post-Production</h3>
+          <p class="text-gray-400">
+            Editing, sound design, thumbnails, and SEO optimization for YouTube.
+          </p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+ <!-- ───── YouTube Video Grid ───── -->
+<section id="portfolio" class="py-16 px-6">
+  <div class="max-w-4xl mx-auto text-center mb-4">
+    <h2 class="text-2xl md:text-3xl font-bold text-white">
+      Portfolio &amp; Metrics
+    </h2>
+    <!-- ← re-added metrics line -->
+    <p class="text-gray-400 mt-2">
+      200+ videos produced • 50% avg. watch time retention • 3× subscriber growth for clients
+    </p>
+  </div>
+
+  <div
+    id="youtube-video-grid"
+    class="max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6"
+  ></div>
+</section>
+
+<script>
+  const API_KEY = 'AIzaSyCTQ5t3UwmWs1lHoEB33rQOcB8zeXoDGbo';
+  const videoIds = ['omrgFmdrP-M','yaZh7ME1w7E','0B8kPNjMELg'];
+
+  async function fetchVideo(id) {
+    const url = new URL('https://www.googleapis.com/youtube/v3/videos');
+    url.search = new URLSearchParams({
+      part: 'snippet,statistics',
+      id, key: API_KEY
+    });
+    const res = await fetch(url);
+    const data = await res.json();
+    return data.items?.[0];
+  }
+
+  async function renderVideos() {
+    const container = document.getElementById('youtube-video-grid');
+    for (let id of videoIds) {
+      const vid = await fetchVideo(id);
+      if (!vid) continue;
+
+      const thumb = vid.snippet.thumbnails.high.url;
+      const title = vid.snippet.title;
+      const views = Number(vid.statistics.viewCount).toLocaleString();
+      const href  = `https://www.youtube.com/watch?v=${id}`;
+
+      container.insertAdjacentHTML('beforeend', `
+        <a
+          href="${href}"
+          target="_blank"
+          class="block bg-gray-800 rounded-xl overflow-hidden transform hover:-translate-y-1 transition-shadow hover:shadow-xl"
+        >
+          <!-- force 16:9 and cover -->
+          <div class="w-full aspect-video bg-black">
+            <img
+              src="${thumb}"
+              alt="${title}"
+              class="w-full h-full object-cover"
+            />
+          </div>
+          <div class="p-4">
+            <h3 class="text-white text-lg font-semibold mb-1">
+              ${title}
+            </h3>
+            <p class="text-gray-400 text-sm">
+              ${views} views
+            </p>
+          </div>
+        </a>
+      `);
+    }
+  }
+
+  renderVideos();
+</script>
+  
+  <!-- Most Popular Package -->
+  <section class="py-16 px-6 bg-gray-800 text-center">
+    <h2 class="text-2xl md:text-3xl font-bold mb-8">Most Popular Package</h2>
+    <div
+      class="inline-block bg-gray-700 p-8 rounded-2xl shadow-lg max-w-md w-full"
+    >
+      <div class="flex justify-center mb-6">
+        <i data-feather="clock" class="h-12 w-12 text-blue-400"></i>
+      </div>
+      <h3 class="text-2xl font-semibold text-white mb-2">
+        1-Hour YouTube Strategy Call
+      </h3>
+      <p class="text-4xl font-extrabold text-blue-300 mb-4">
+        $250 <span class="text-lg font-medium align-super">/ hr</span>
+      </p>
+      <p class="text-gray-300 mb-8 leading-relaxed">
+        A deep dive into your channel goals, content roadmap, and SEO-driven
+        growth strategy.
+      </p>
+      <!-- Stripe Checkout Button -->
+      <a
+        href="https://buy.stripe.com/6oE7u8a60c2AgOQ5kl"
+        class="inline-block px-8 py-3 bg-blue-600 hover:bg-blue-500 rounded-full font-semibold text-white transition"
+      >
+        Book Consultation →
+      </a>
+    </div>
+  </section>
 
   <!-- Footer -->
-  <footer class="bg-gray-900 text-gray-400 py-6 mt-auto">
-    <!-- existing footer markup -->
-  </footer>
+<footer class="bg-gray-900 text-gray-400 py-6 mt-auto">
+  <div
+    class="max-w-4xl mx-auto flex flex-col sm:flex-row items-center sm:justify-between px-6 space-y-4 sm:space-y-0"
+  >
+    <!-- Logo + tagline -->
+    <div class="flex items-center space-x-2">
+      <img src="images/logo-small.png" alt="D.A.G. FILM Logo" class="h-8" />
+      <span class="font-semibold text-white">Shoot. Edit. Grow.</span>
+    </div>
+
+    <!-- Inline subscribe form -->
+    <form
+      id="subscribe-form"
+      class="flex items-center space-x-2"
+      action="https://assets.mailerlite.com/jsonp/1491826/forms/153219461605754013/subscribe"
+      method="post"
+    >
+      <input
+        type="email"
+        name="fields[email]"
+        required
+        placeholder="Your email"
+        class="bg-gray-800 text-gray-200 placeholder-gray-500 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+      />
+      <button
+        type="submit"
+        class="bg-blue-600 hover:bg-blue-500 text-white font-semibold rounded-lg px-4 py-2 transition-shadow shadow-md"
+      >
+        Subscribe
+      </button>
+      <input type="hidden" name="ml-submit" value="1" />
+      <input type="hidden" name="anticsrf" value="true" />
+    </form>
+
+    <!-- Social links -->
+    <div class="flex space-x-4 text-sm">
+      <a
+        href="https://www.youtube.com/channel/UCGcgOlgWbHwZJZz1i8kYMGg"
+        target="_blank"
+        class="hover:text-white"
+        >YouTube</a
+      >
+      <a
+        href="https://www.instagram.com/d.a.g.film/"
+        target="_blank"
+        class="hover:text-white"
+        >Instagram</a
+      >
+      <a
+        href="https://discord.gg/fqnyEZ9N"
+        target="_blank"
+        class="hover:text-white"
+        >Discord</a
+      >
+      <a href="#top" class="hover:text-white">Back to top</a>
+    </div>
+  </div>
+  <p class="mt-6 text-center text-xs text-gray-500">
+    &copy; 2025 D.A.G. FILM. All rights reserved.
+  </p>
+
+  <script>
+    function ml_webform_success_25476846() {
+      const form = document.getElementById("subscribe-form");
+      form.innerHTML =
+        '<span class="text-white font-medium">Thanks for subscribing!</span>';
+    }
+    document
+      .getElementById("subscribe-form")
+      .addEventListener("submit", function (e) {
+        e.preventDefault();
+        const data = new FormData(this);
+        fetch(this.action, { method: "POST", body: data })
+          .then((r) => r.json())
+          .then((json) =>
+            json.success
+              ? ml_webform_success_25476846()
+              : alert("Oops, something went wrong. Please try again.")
+          )
+          .catch(() =>
+            alert("Network error — please try again in a moment.")
+          );
+      });
+  </script>
+</footer>
+  <!-- Activate Feather Icons -->
+  <script>
+    feather.replace({ "stroke-width": 2 });
+  </script>
+</body>
+</html>
+
 
   <!-- Stripe + Flatpickr + Booking Logic -->
   <script>
