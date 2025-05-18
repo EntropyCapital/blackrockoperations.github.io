@@ -18,8 +18,19 @@
   <script src="https://unpkg.com/feather-icons"></script>
 
   <!-- Flatpickr date-picker -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" />
-  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"
+/>
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+<!-- Flatpickr “OK” button plugin -->
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/flatpickr/dist/plugins/confirmDate/confirmDate.css"
+/>
+<script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/plugins/confirmDate/confirmDate.js"></script>
+
 
   <!-- Stripe.js -->
   <script src="https://js.stripe.com/v3/"></script>
@@ -40,19 +51,43 @@
   </nav>
 
   <!-- Booking Modal -->
-  <div id="booking-modal" class="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center p-4 hidden">
-    <div class="bg-gray-800 rounded-xl p-6 max-w-md w-full space-y-4">
-      <h3 class="text-xl font-semibold">Choose Date & Time</h3>
-      <input id="slotpicker" placeholder="Select date & time" class="w-full p-3 rounded-lg text-gray-900" />
-      <input id="email-input" type="email" placeholder="Your email" class="w-full p-3 rounded-lg text-gray-900" />
-      <button id="confirm-btn" disabled class="w-full py-3 bg-blue-600 hover:bg-blue-500 rounded-full font-semibold transition disabled:opacity-50">
-        Pay & Book
-      </button>
-      <button id="close-booking" class="mt-2 w-full py-2 text-center text-gray-300 hover:text-white">
-        Cancel
-      </button>
-    </div>
+<div
+  id="booking-modal"
+  class="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center p-4 z-[9999] hidden"
+>
+  <div
+    class="relative bg-gray-800 rounded-xl p-6 max-w-md w-full space-y-4"
+  >
+    <!-- X Close -->
+    <button
+      id="close-booking"
+      class="absolute top-4 right-4 text-gray-400 hover:text-white text-2xl leading-none"
+    >&times;</button>
+
+    <h3 class="text-xl font-semibold">Choose Date &amp; Time</h3>
+    <input
+      id="slotpicker"
+      placeholder="Select date & time"
+      class="w-full p-3 rounded-lg text-gray-900"
+    />
+    <input
+      id="email-input"
+      type="email"
+      placeholder="Your email"
+      class="w-full p-3 rounded-lg text-gray-900"
+    />
+
+    <!-- Pay & Book -->
+    <button
+      id="confirm-btn"
+      disabled
+      class="w-full py-3 bg-blue-600 hover:bg-blue-500 rounded-full font-semibold transition disabled:opacity-50"
+    >
+      Pay &amp; Book
+    </button>
   </div>
+</div>
+
 
   <!-- Hero Section -->
   <header id="top" class="w-full h-96 bg-center bg-no-repeat bg-cover" style="background-image: url('images/hero-background.jpg');">
@@ -161,36 +196,45 @@
 
   <!-- Booking Logic & Scripts -->
   <script>
-    let selectedSlot = null;
-    // Initialize date-picker
-    flatpickr('#slotpicker', {
-      enableTime: true,
-      minDate: 'today',
-      onChange: (dates) => {
-        selectedSlot = dates[0].toISOString();
-        document.getElementById('confirm-btn').disabled = false;
-      }
+  // 1) Initialize the date-picker with an OK button
+  flatpickr('#slotpicker', {
+    enableTime: true,
+    minDate: 'today',
+    plugins: [new confirmDatePlugin({ confirmText: 'OK' })],
+    onChange: (dates) => {
+      selectedSlot = dates[0].toISOString();
+      document.getElementById('confirm-btn').disabled = false;
+    }
+  });
+
+  // 2) Use your real Stripe Publishable key here
+  const stripe = Stripe('pk_live_51RJdkFKPt2aVTNdu3HUo75PoMDJHMPtSMQ9ggbFLSLBNxH0ufmOy8axlqisikDfPxvv7YMnINEkUy2amuvj6PCli000PhNTRAj');
+  let selectedSlot = null;
+
+  // 3) Only open/close the modal with explicit buttons
+  document.getElementById('open-booking').onclick = () => {
+    document.getElementById('booking-modal').classList.remove('hidden');
+  };
+  document.getElementById('close-booking').onclick = () => {
+    document.getElementById('booking-modal').classList.add('hidden');
+  };
+
+  // 4) Create a Checkout session and redirect
+  document.getElementById('confirm-btn').onclick = async () => {
+    const email = document.getElementById('email-input').value;
+    const res = await fetch('/api/create-checkout-session', {
+      method: 'POST',
+      headers: {'Content-Type':'application/json'},
+      body: JSON.stringify({ email, slot: selectedSlot })
     });
-    // Initialize Stripe (use your publishable key here)
-    const stripe = Stripe('pk_live_51RJdkFKPt2aVTNdu3HUo75PoMDJHMPtSMQ9ggbFLSLBNxH0ufmOy8axlqisikDfPxvv7YMnINEkUy2amuvj6PCli000PhNTRAj');
-    // Open & close booking modal
-    document.querySelectorAll('#open-booking').forEach(btn => btn.addEventListener('click', () => {
-      document.getElementById('booking-modal').classList.remove('hidden');
-    }));
-    document.getElementById('close-booking').onclick = () => document.getElementById('booking-modal').classList.add('hidden');
-    // Handle payment
-    document.getElementById('confirm-btn').onclick = async () => {
-      const email = document.getElementById('email-input').value;
-      const res = await fetch('/api/create-checkout-session', {
-        method: 'POST',
-        headers: {'Content-Type':'application/json'},
-        body: JSON.stringify({ email, slot: selectedSlot })
-      });
-      const { id } = await res.json();
-      stripe.redirectToCheckout({ sessionId: id });
-    };
-    // Activate Feather icons
-    feather.replace({ 'stroke-width': 2 });
-  </script>
+    const { id } = await res.json();
+    // this will now actually redirect to Stripe
+    await stripe.redirectToCheckout({ sessionId: id });
+  };
+
+  // 5) Feather Icons
+  feather.replace({ 'stroke-width': 2 });
+</script>
+
 </body>
 </html>
