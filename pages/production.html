@@ -56,7 +56,7 @@
     </div>
   </header>
 
-  <!-- WHAT WE COVER -->
+ <!-- WHAT WE COVER -->
   <section id="production-details" class="py-16 px-6 bg-gray-800">
     <div class="max-w-4xl mx-auto">
       <h2 class="text-2xl md:text-3xl font-bold text-center text-white mb-8">What We Can Cover</h2>
@@ -65,25 +65,33 @@
         <div class="bg-gray-700 p-6 rounded-2xl shadow-lg text-center">
           <i data-feather="map-pin" class="h-10 w-10 text-blue-400 block mx-auto mb-4"></i>
           <h3 class="text-xl font-semibold text-white mb-2">Location Scouting</h3>
-          <p class="text-gray-300 text-sm">We find the perfect spots—from lighting to logistics—so every scene looks and feels exactly how you envisioned.</p>
+          <p class="text-gray-300 text-sm">
+            We find the perfect spots—from lighting to logistics—so every scene looks and feels exactly how you envisioned.
+          </p>
         </div>
         <!-- Equipment Setup -->
         <div class="bg-gray-700 p-6 rounded-2xl shadow-lg text-center">
           <i data-feather="tool" class="h-10 w-10 text-blue-400 block mx-auto mb-4"></i>
           <h3 class="text-xl font-semibold text-white mb-2">Equipment Setup</h3>
-          <p class="text-gray-300 text-sm">Professional cameras, lights, and audio gear—rigged, tested and optimized—so we never miss a beat on shoot day.</p>
+          <p class="text-gray-300 text-sm">
+            Professional cameras, lights, and audio gear—rigged, tested and optimized—so we never miss a beat on shoot day.
+          </p>
         </div>
         <!-- Filming -->
         <div class="bg-gray-700 p-6 rounded-2xl shadow-lg text-center">
           <i data-feather="camera" class="h-10 w-10 text-blue-400 block mx-auto mb-4"></i>
           <h3 class="text-xl font-semibold text-white mb-2">Filming</h3>
-          <p class="text-gray-300 text-sm">On-camera direction and multi-angle capture to bring your story to life—smooth, cinematic, and totally on brand.</p>
+          <p class="text-gray-300 text-sm">
+            On-camera direction and multi-angle capture to bring your story to life—smooth, cinematic, and totally on brand.
+          </p>
         </div>
         <!-- Creative Direction -->
         <div class="bg-gray-700 p-6 rounded-2xl shadow-lg text-center">
           <i data-feather="edit-3" class="h-10 w-10 text-blue-400 block mx-auto mb-4"></i>
           <h3 class="text-xl font-semibold text-white mb-2">Creative Direction</h3>
-          <p class="text-gray-300 text-sm">Guiding talent and framing each shot for maximum impact—from wardrobe to performance to final take.</p>
+          <p class="text-gray-300 text-sm">
+            Guiding talent and framing each shot for maximum impact—from wardrobe to performance to final take.
+          </p>
         </div>
       </div>
     </div>
@@ -101,7 +109,7 @@
     </div>
   </section>
 
-  <!-- Footer -->
+ <!-- Footer -->
 <footer class="bg-gray-900 text-gray-400 py-6">
   <div
     class="max-w-4xl mx-auto flex flex-col sm:flex-row items-center sm:justify-between px-6 space-y-4 sm:space-y-0"
@@ -187,7 +195,6 @@
       });
   </script>
 </footer>
-
   <!-- Booking Logic & Scripts -->
   <script>
     let selectedSlot = null;
@@ -201,9 +208,14 @@
       }
     });
 
-    const stripe = Stripe('pk_live_...');
-    document.querySelectorAll('.open-booking').forEach(btn => btn.addEventListener('click', () => document.getElementById('booking-modal').classList.remove('hidden')));
-    document.getElementById('close-booking').onclick = () => document.getElementById('booking-modal').classList.add('hidden');
+    // Initialize Stripe with your real Publishable Key
+    const stripe = Stripe('pk_live_51RJdkFKPt2aVTNdugck2GhfHEkokeBJRZ2fs7Q8dXkClth26CKHfgoONU3hqocJhrLWr9zXmQm1qTVecWKQOoqny00Esz4Kvhf');
+
+    document.querySelectorAll('.open-booking').forEach(btn =>
+      btn.addEventListener('click', () => document.getElementById('booking-modal').classList.remove('hidden'))
+    );
+    document.getElementById('close-booking').onclick = () =>
+      document.getElementById('booking-modal').classList.add('hidden');
 
     document.getElementById('confirm-btn').onclick = async () => {
       const email = document.getElementById('email-input').value;
@@ -213,7 +225,10 @@
         body: JSON.stringify({ email, slot: selectedSlot })
       });
       const { id } = await res.json();
-      await stripe.redirectToCheckout({ sessionId: id });
+      console.log('Redirecting to Checkout with session:', id);
+      stripe.redirectToCheckout({ sessionId: id }).then(result => {
+        if (result.error) alert(result.error.message);
+      });
     };
 
     feather.replace({ 'stroke-width': 2 });
