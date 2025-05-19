@@ -316,14 +316,14 @@
    <!-- nav links smoothly scroll to section -->
   <script>
   // smooth-centered scrolling for any nav link to an in-page anchor
-  document.querySelectorAll('nav a[href^="#"]').forEach(link => {
-    link.addEventListener('click', e => {
-      e.preventDefault();
-      const target = document.querySelector(link.getAttribute('href'));
-      if (!target) return;
-      target.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    });
+ document.querySelectorAll('a[href^="#"]').forEach(link => {
+  link.addEventListener('click', e => {
+    e.preventDefault();
+    const target = document.querySelector(link.getAttribute('href'));
+    if (!target) return;
+    target.scrollIntoView({ behavior: 'smooth', block: 'center' });
   });
+});
 </script>
 </body>
 </html>
