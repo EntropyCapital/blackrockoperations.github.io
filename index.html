@@ -212,52 +212,59 @@
     </div>
   </section>
 
- <!-- Footer -->
 <footer class="bg-gray-900 text-gray-400 py-8 mt-auto">
-  <div class="max-w-5xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
+  <div class="max-w-4xl mx-auto px-6 flex flex-col items-center space-y-6">
     
-    <!-- 1) Logo + Tagline -->
-    <div class="flex flex-col items-center md:items-start space-y-2">
-      <img src="images/logo-small.png"
-           alt="D.A.G. FILM Logo"
-           class="h-10 w-auto" />
-      <span class="font-semibold text-white text-center md:text-left">
-        Strategy. Production.<br />
-        Development.
-      </span>
-    </div>
+    <!-- Logo -->
+    <img
+      src="images/logo-small.png"
+      alt="D.A.G. FILM Logo"
+      class="h-10 w-auto"
+    />
 
-    <!-- 2) Subscribe Form + Copyright -->
-    <div class="flex flex-col items-center space-y-4">
-      <form id="subscribe-form" class="flex w-full max-w-sm">
-        <input
-          type="email"
-          name="fields[email]"
-          required
-          placeholder="Your email"
-          class="flex-1 bg-gray-800 text-gray-200 placeholder-gray-500 
-                 rounded-l-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-        />
-        <button
-          type="submit"
-          class="bg-blue-600 hover:bg-blue-500 text-white font-semibold 
-                 rounded-r-lg px-4 py-2 transition-shadow"
-        >
-          Subscribe
-        </button>
-      </form>
-      <p class="text-xs text-gray-500 text-center md:text-left">
-        &copy; 2025 D.A.G. FILM. All rights reserved.
-      </p>
-    </div>
+    <!-- Tagline -->
+    <span class="font-semibold text-white text-center">
+      Strategy. Production.<br />
+      Development.
+    </span>
 
-    <!-- 3) Social Links -->
-    <div class="flex justify-center md:justify-end space-x-6 text-sm">
+    <!-- Subscribe Form -->
+    <form
+      id="subscribe-form"
+      class="w-full max-w-md flex"
+      action="https://assets.mailerlite.com/jsonp/1491826/forms/153219461605754013/subscribe"
+      method="post"
+    >
+      <input
+        type="email"
+        name="fields[email]"
+        required
+        placeholder="Your email"
+        class="flex-1 bg-gray-800 text-gray-200 placeholder-gray-500
+               rounded-l-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+      />
+      <button
+        type="submit"
+        class="bg-blue-600 hover:bg-blue-500 text-white font-semibold
+               rounded-r-lg px-4 py-2 transition-shadow"
+      >
+        Subscribe
+      </button>
+    </form>
+
+    <!-- Social Links -->
+    <div class="flex space-x-6 text-sm">
       <a href="https://www.youtube.com/…" target="_blank" class="hover:text-white">YouTube</a>
       <a href="https://www.instagram.com/…" target="_blank" class="hover:text-white">Instagram</a>
       <a href="https://discord.gg/…" target="_blank" class="hover:text-white">Discord</a>
       <a href="#top" class="hover:text-white">Back to top</a>
     </div>
+
+    <!-- Copyright -->
+    <p class="text-xs text-gray-500 text-center">
+      &copy; 2025 D.A.G. FILM. All rights reserved.
+    </p>
+
   </div>
 </footer>
 
