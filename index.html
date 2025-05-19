@@ -35,25 +35,23 @@
 
 <body class="bg-gray-900 text-white flex flex-col min-h-screen">
 <!-- Sticky Nav -->
-<nav class="sticky top-0 z-50 bg-gray-900 bg-opacity-90 backdrop-blur-md flex items-center justify-between px-6 py-4">
+<nav class="sticky top-0 z-50 bg-gray-900 bg-opacity-90 backdrop-blur-md flex items-center justify-between px-4 sm:px-6 py-4">
   <div class="flex items-center space-x-6">
-    <!-- Logo -->
-    <a href="#top">
-      <img src="images/logo-small.png" alt="D.A.G. FILM Logo" class="h-10" />
+    <!-- Logo never shrinks -->
+    <a href="#top" class="flex-shrink-0">
+      <img src="images/logo-small.png"
+           alt="D.A.G. FILM Logo"
+           class="h-10 w-auto" />
     </a>
 
-    <!-- Strategy Session Icon (blue) -->
-    <a href="#strategy" class="hover:opacity-75" title="Strategy Session">
+    <!-- Icons -->
+    <a href="#strategy" class="hover:opacity-75">
       <i class="fas fa-chess-knight h-10 w-10 text-blue-500"></i>
     </a>
-
-    <!-- Video Production Icon (red) -->
-    <a href="#production" class="hover:opacity-75" title="Video Production">
+    <a href="#production" class="hover:opacity-75">
       <i class="fas fa-video h-10 w-10 text-red-500"></i>
     </a>
-
-    <!-- Web Development Icon (green) -->
-    <a href="#web-development" class="hover:opacity-75" title="Web Development">
+    <a href="#web-development" class="hover:opacity-75">
       <i class="fas fa-code h-10 w-10 text-green-400"></i>
     </a>
   </div>
