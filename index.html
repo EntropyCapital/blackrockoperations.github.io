@@ -126,7 +126,7 @@
   <!-- Render YouTube Videos JS -->
   <script>
     const API_KEY = 'AIzaSyCTQ5t3UwmWs1lHoEB33rQOcB8zeXoDGbo';
-    const videoIds = ['TSlh59hHBjI','yaZh7ME1w7E','AoZ0mA-35yc&t=71s'];
+    const videoIds = ['TSlh59hHBjI','yaZh7ME1w7E','AoZ0mA-35yc&t'];
     async function fetchVideo(id) {
       const url = new URL('https://www.googleapis.com/youtube/v3/videos');
       url.search = new URLSearchParams({ part: 'snippet,statistics', id, key: API_KEY });
