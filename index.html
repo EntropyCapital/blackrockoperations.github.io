@@ -19,56 +19,55 @@
   <!-- Favicon -->
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png" />
 
-  <!-- Tailwind -->
-  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com" defer></script>
 
-  <!-- Montserrat -->
+  <!-- Montserrat Font -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet" />
 
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
   <!-- Feather Icons -->
-  <script src="https://unpkg.com/feather-icons"></script>
+  <script src="https://unpkg.com/feather-icons" defer></script>
 
   <!-- Flatpickr -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" />
-  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr" defer></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/plugins/confirmDate/confirmDate.css" />
-  <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/plugins/confirmDate/confirmDate.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/plugins/confirmDate/confirmDate.js" defer></script>
 
   <!-- Stripe.js -->
-  <script src="https://js.stripe.com/v3/"></script>
+  <script src="https://js.stripe.com/v3/" defer></script>
 
   <!-- MailerLite -->
   <link rel="stylesheet" href="css/mailerlite.css" />
-
 </head>
 <body class="bg-white text-black flex flex-col min-h-screen">
 
-  <!-- Nav -->
-  <nav class="sticky top-0 z-50 bg-white flex items-center justify-start sm:justify-between px-4 sm:px-6 md:px-8 py-3">
-    <div class="flex items-center space-x-6">
-      <a href="#top" class="flex-shrink-0">
-        <img src="images/logo-small.png" alt="Logo" class="h-12 w-auto" />
+  <!-- Navigation -->
+  <nav class="sticky top-0 z-50 bg-white flex items-center justify-between px-6 py-3 shadow">
+    <a href="#top">
+      <img src="images/logo-small.png" alt="Logo" class="h-12" />
+    </a>
+    <div class="flex items-center space-x-4">
+      <a href="#strategy" class="hover:text-gray-600">
+        <i class="fa-solid fa-chess-knight text-blue-500 text-2xl"></i>
       </a>
-      <a href="#strategy" class="flex items-center justify-center h-12 w-12 hover:opacity-75">
-        <i class="fas fa-chess-knight text-blue-500 text-2xl"></i>
-      </a>
-      <a href="#production" class="flex items-center justify-center h-12 w-12 hover:opacity-75">
-        <i class="fas fa-video text-red-500 text-2xl"></i>
-      </a>
-      <a href="#web-development" class="flex items-center justify-center h-12 w-12 hover:opacity-75">
+      <a href="#web-development" class="hover:text-gray-600">
         <i class="fas fa-code text-green-400 text-2xl"></i>
       </a>
+      <button class="open-booking px-5 py-2 bg-blue-600 hover:bg-blue-500 rounded-full font-semibold text-white">
+        Schedule a Call
+      </button>
     </div>
-    <button class="open-booking px-5 py-2 bg-blue-600 hover:bg-blue-500 rounded-full font-semibold text-white">
-      Schedule a Call
-    </button>
   </nav>
 
   <!-- Booking Modal -->
   <div id="booking-modal" class="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center p-4 hidden">
     <div class="relative bg-white rounded-xl p-6 max-w-md w-full space-y-4">
       <button id="close-booking" class="absolute top-4 right-4 text-black hover:text-gray-700 text-2xl">&times;</button>
-      <h3 class="text-xl font-semibold">Choose Date & Time</h3>
+      <h3 class="text-xl font-semibold">Choose Date &amp; Time</h3>
       <input id="slotpicker" placeholder="Select date & time" class="w-full p-3 rounded-lg text-black bg-white" />
       <input id="email-input" type="email" placeholder="Your email" class="w-full p-3 rounded-lg text-black bg-white" />
       <button id="confirm-btn" disabled class="w-full py-3 bg-blue-600 hover:bg-blue-500 text-white rounded-full font-semibold disabled:opacity-50">
@@ -77,52 +76,63 @@
     </div>
   </div>
 
-  <!-- Hero -->
+  <!-- Hero Section -->
   <header id="top" class="w-full h-96 flex flex-col items-center justify-center text-center px-4 bg-white">
-    <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight" style="font-family:'Montserrat',sans-serif;">Strategy. Production. Development.</h1>
-    <p class="mt-4 text-base sm:text-lg md:text-xl max-w-xl">Transform your brand with high-impact videos that engage, convert, and grow your audience.</p>
+    <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight" style="font-family:'Montserrat',sans-serif;">
+      Strategy. Production. Development.
+    </h1>
+    <p class="mt-4 text-base sm:text-lg md:text-xl max-w-xl">
+      Transform your brand with high-impact videos that engage, convert, and grow your audience.
+    </p>
   </header>
 
   <!-- Why Work With Me -->
   <section id="about" class="py-16 px-6 bg-white">
     <div class="max-w-3xl mx-auto text-center">
       <h2 class="text-2xl md:text-3xl font-bold">Why Work With Me?</h2>
-      <p class="mt-4">Blackrock Operations is a Mesa-based video production and web development company serving Tempe, Scottsdale, and Gilbert, AZ. Whether you're building a new website or need cinematic content for YouTube or social media, we bring your ideas to life with high-quality production and strategic design.</p>
+      <p class="mt-4">
+        Blackrock Operations is a Mesa-based video production and web development company serving Tempe, Scottsdale, and Gilbert, AZ. Whether you're building a new website or need cinematic content for YouTube or social media, we bring your ideas to life with high-quality production and strategic design.
+      </p>
     </div>
   </section>
 
-  <!-- Strategy Session Section -->
+  <!-- Strategy Session -->
   <section id="strategy" class="py-16 px-6 bg-white">
     <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 items-center gap-6">
-      <div class="text-left">
-        <h2 class="text-2xl md:text-3xl font-bold mb-4"><i class="fas fa-chess-knight text-blue-500 mr-2"></i>Strategy Session</h2>
-        <p class="mb-6">In-depth consultation focused on content planning, branding, SEO tactics, and growth strategies. Conducted in my private Discord server. <a href="https://discord.gg/xFJWnAs7" class="underline hover:text-gray-700 ml-1">Join here</a> and get ready to level up.</p>
+      <div>
+        <h2 class="text-2xl md:text-3xl font-bold mb-4">
+          <i class="fas fa-chess-knight text-blue-500 mr-2"></i>Strategy Session
+        </h2>
+        <p class="mb-6">
+          In-depth consultation focused on content planning, branding, SEO tactics, and growth strategies. Conducted in my private Discord server. <a href="https://discord.gg/xFJWnAs7" class="underline">Join here</a> and get ready to level up.
+        </p>
       </div>
-      <div class="flex justify-end"><button class="open-booking inline-block px-8 py-3 bg-blue-600 hover:bg-blue-500 rounded-full font-semibold text-white">Schedule Strategy Session</button></div>
+      <div class="text-right">
+        <button class="open-booking inline-block px-8 py-3 bg-blue-600 hover:bg-blue-500 rounded-full font-semibold text-white">
+          Schedule Strategy Session
+        </button>
+      </div>
     </div>
   </section>
 
-  <!-- Video Production Section -->
+    <!-- Video Production -->
   <section id="production" class="py-16 px-6 bg-white">
     <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 items-center gap-6">
-      <div class="hidden md:block"></div>
-      <div class="text-right">
-        <h2 class="text-2xl md:text-3xl font-bold mb-4"><i class="fas fa-video text-red-500 mr-2"></i>Video Production</h2>
-        <p class="mb-1">Professional on-location shooting with cinema-quality gear, creative direction, and a focus on storytelling.</p>
-        <p class="font-bold underline">Currently not available.</p>
+      <div class="text-left">
+        <h2 class="text-2xl md:text-3xl font-bold mb-4"><i class="fa-solid fa-video text-red-500 mr-2"></i>Video Production</h2>
+        <p class="mb-6">Professional on-location shooting with cinema-quality gear, creative direction, and a focus on storytelling.</p>
       </div>
+      <div class="hidden md:block"></div>
     </div>
   </section>
 
-  <!-- Web Development Section -->
-  <section id="web-development" style="scroll-margin-top:5vh;" class="py-16 px-6 bg-white">
-    <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 items-center gap-6">
-      <div class="text-left">
-        <h2 class="text-2xl md:text-3xl font-bold mb-4"><i class="fas fa-code text-green-400 mr-2"></i>Web Development</h2>
-        <p class="mb-1">Custom websites, responsive apps, and seamless integrations designed to showcase your brand and drive conversions.</p>
-        <p class="font-bold underline">Currently not available.</p>
-      </div>
-      <div class="hidden md:block"></div>
+  <!-- Web Development -->
+  <section id="web-development" class="py-16 px-6 bg-white">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-2xl md:text-3xl font-bold">Web Development</h2>
+      <p class="mt-4">
+        Custom websites, responsive apps, and seamless integrations designed to showcase your brand and drive conversions.
+      </p>
     </div>
   </section>
 
@@ -134,128 +144,42 @@
     </div>
     <div id="youtube-video-grid" class="max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6"></div>
   </section>
-</body>
-</html>
 
-
-
-  <!-- Render YouTube Videos JS -->
-  <script>
-    const API_KEY = 'AIzaSyCTQ5t3UwmWs1lHoEB33rQOcB8zeXoDGbo';
-    const videoIds = ['TSlh59hHBjI','yaZh7ME1w7E','AoZ0mA-35yc'];
-    async function fetchVideo(id) {
-      const url = new URL('https://www.googleapis.com/youtube/v3/videos');
-      url.search = new URLSearchParams({ part: 'snippet,statistics', id, key: API_KEY });
-      const res = await fetch(url);
-      const data = await res.json();
-      return data.items?.[0];
-    }
-    async function renderVideos() {
-      const container = document.getElementById('youtube-video-grid');
-      for (let id of videoIds) {
-        const vid = await fetchVideo(id);
-        if (!vid) continue;
-        const thumb = vid.snippet.thumbnails.high.url;
-        const title = vid.snippet.title;
-        const views = Number(vid.statistics.viewCount).toLocaleString();
-        const href = `https://www.youtube.com/watch?v=${id}`;
-        container.insertAdjacentHTML('beforeend', `
-  <a
-    href="${href}"
-    target="_blank"
-    class="block bg-white rounded-xl overflow-hidden transform shadow-lg hover:shadow-2xl hover:-translate-y-1 transition-shadow"
-  >
-    <div class="w-full aspect-video bg-white">
-      <img src="${thumb}" alt="${title}" class="w-full h-full object-cover"/>
-    </div>
-    <div class="p-4">
-      <h3 class="text-black text-lg font-semibold mb-1">${title}</h3>
-      <p class="text-black text-sm">${views} views</p>
-    </div>
-  </a>
-`);
-      }
-    }
-    renderVideos();
-  </script>
-
-<!-- Most Popular Package -->
+  <!-- Most Popular Package -->
   <section class="py-16 px-6 bg-white text-center">
     <h2 class="text-2xl md:text-3xl font-bold mb-8">Most Popular Package</h2>
     <div class="inline-block bg-white p-8 rounded-2xl shadow-lg max-w-md w-full">
       <div class="flex justify-center mb-6"><i data-feather="clock" class="h-12 w-12 text-blue-400"></i></div>
-      <h3 class="text-2xl font-semibold mb-2 text-black">YouTube Strategy Call</h3>
-      <p class="text-4xl font-extrabold mb-4 text-black">$250 <span class="text-lg font-medium align-super">/ hr</span></p>
-      <p class="mb-8 leading-relaxed text-black">A deep dive into your channel goals, content roadmap, and SEO-driven growth strategy.</p>
-      <button class="open-booking inline-block px-8 py-3 bg-blue-600 hover:bg-blue-500 rounded-full font-semibold text-white transition">Schedule a Call</button>
+      <h3 class="text-2xl font-semibold mb-2">YouTube Strategy Call</h3>
+      <p class="text-4xl font-extrabold mb-4">$250 <span class="text-lg align-super">/ hr</span></p>
+      <p class="mb-8">A deep dive into your channel goals, content roadmap, and SEO-driven growth strategy.</p>
+      <button class="open-booking inline-block px-8 py-3 bg-blue-600 hover:bg-blue-500 rounded-full font-semibold text-white">Schedule a Call</button>
     </div>
   </section>
 
   <!-- Footer -->
   <footer class="bg-white text-black py-8 mt-auto">
-    <div class="max-w-4xl mx-auto px-6 flex flex-col items-center space-y-6">
-      <div class="flex items-center space-x-4">
-        <img src="images/logo-small.png" alt="D.A.G. FILM Logo" class="h-10 w-auto" />
-        <span class="font-semibold text-black">Strategy. Production.<br />Development.</span>
-      </div>
-      <h3 class="text-lg font-semibold">Subscribe to the mailing list</h3>
-      <form id="subscribe-form" class="w-full max-w-md flex" action="https://assets.mailerlite.com/jsonp/1491826/forms/153219461605754013/subscribe" method="post">
-        <input type="email" name="fields[email]" required placeholder="Your email" class="flex-1 bg-white text-black placeholder-gray-500 rounded-l-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" />
-        <button type="submit" class="bg-blue-600 hover:bg-blue-500 text-white font-semibold rounded-r-lg px-4 py-2 transition-shadow">Subscribe</button>
-      </form>
-      <div class="flex space-x-6 text-sm">
-        <a href="https://www.youtube.com/channel/UCGcgOlgWbHwZJZz1i8kYMGg" target="_blank" class="hover:text-gray-700">YouTube</a>
-        <a href="https://www.instagram.com/d.a.g.film/" target="_blank" class="hover:text-gray-700">Instagram</a>
-        <a href="https://discord.gg/xFJWnAs7" target="_blank" class="hover:text-gray-700">Discord</a>
-        <a href="#top" class="hover:text-gray-700">Back to top</a>
-      </div>
-      <p class="text-xs text-gray-500 text-center">&copy; 2025 Blackrock Operations. All rights reserved.</p>
+    <div class="max-w-4xl.mx-auto px-6 flex flex-col items-center space-y-6">...
     </div>
   </footer>
 
-  <!-- Booking Logic & Scripts -->
+  <!-- Scripts -->
   <script>
+    // Initialize icons
+    document.addEventListener('DOMContentLoaded', () => feather.replace({ 'stroke-width': 2 }));
+
+    // Flatpickr + booking logic
     let selectedSlot = null;
-    flatpickr('#slotpicker', {
-      enableTime: true,
-      minDate: 'today',
-      plugins: [new confirmDatePlugin({ confirmText: 'OK' })],
-      onChange: dates => {
-        selectedSlot = dates[0].toISOString();
-        document.getElementById('confirm-btn').disabled = false;
-      }
-    });
-
+    flatpickr('#slotpicker', { enableTime: true, minDate: 'today', plugins: [new confirmDatePlugin({ confirmText: 'OK' })], onChange: dates => { selectedSlot = dates[0].toISOString(); document.getElementById('confirm-btn').disabled = false; } });
     const stripe = Stripe('pk_live_51RJdkFKPt2aVTNdu3HUo75PoMDJHMPtSMQ9ggbFLSLBNxH0ufmOy8axlqisikDfPxvv7YMnINEkUy2amuvj6PCli000PhNTRAj');
-
-    document.querySelectorAll('.open-booking').forEach(btn => btn.addEventListener('click', () => {
-      document.getElementById('booking-modal').classList.remove('hidden');
-    }));
+    document.querySelectorAll('.open-booking').forEach(btn => btn.onclick = () => document.getElementById('booking-modal').classList.remove('hidden'));
     document.getElementById('close-booking').onclick = () => document.getElementById('booking-modal').classList.add('hidden');
-
-    document.getElementById('confirm-btn').onclick = async () => {
-      const email = document.getElementById('email-input').value;
-      const res = await fetch('/api/create-checkout-session', {
-        method: 'POST',
-        headers: {'Content-Type':'application/json'},
-        body: JSON.stringify({ email, slot: selectedSlot })
-      });
-      const { id } = await res.json();
-      await stripe.redirectToCheckout({ sessionId: id });
-    };
-
-    feather.replace({ 'stroke-width': 2 });
+    document.getElementById('confirm-btn').onclick = async () => { const email = document.getElementById('email-input').value; const res = await fetch('/api/create-checkout-session',{ method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({ email, slot: selectedSlot }) }); const { id } = await res.json(); stripe.redirectToCheckout({ sessionId: id }); };
   </script>
 
-  <!-- Smooth scroll -->
+  <!-- Smooth Scroll -->
   <script>
-    document.querySelectorAll('a[href^="#"]').forEach(link => {
-      link.addEventListener('click', e => {
-        e.preventDefault();
-        document.querySelector(link.getAttribute('href')).scrollIntoView({ behavior: 'smooth', block: 'center' });
-      });
-    });
+    document.querySelectorAll('a[href^="#"]').forEach(link => link.addEventListener('click', e => { e.preventDefault(); document.querySelector(link.getAttribute('href')).scrollIntoView({ behavior: 'smooth', block: 'center' }); }));
   </script>
-
 </body>
 </html>
