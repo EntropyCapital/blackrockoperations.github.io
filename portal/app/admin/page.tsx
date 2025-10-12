@@ -29,7 +29,7 @@ export default async function AdminDashboard() {
     .from("profiles")
     .select("role, full_name, email")
     .eq("id", user.id)
-    .maybeSingle<Profile>();
+    .maybeSingle();
 
   // Gate admin access
   if (profile?.role !== "admin") {
@@ -79,7 +79,7 @@ export default async function AdminDashboard() {
 
   return (
     <div className="min-h-screen bg-slate-50">
-      <AdminHeader userName={userName} />
+      <AdminHeader userName={profile?.full_name || user.email || "Admin"} />
       <main className="container mx-auto p-6 space-y-6">
         <div>
           <h1 className="text-3xl font-bold tracking-tight">Admin Dashboard</h1>
