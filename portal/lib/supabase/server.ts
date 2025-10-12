@@ -1,10 +1,8 @@
 import { cookies, headers } from "next/headers";
-import { createServerClient } from "@supabase/auth-helpers-nextjs";
-import type { CookieOptions } from "@supabase/ssr";
+import { createServerClient, type CookieOptions } from "@supabase/ssr";
 
-// helper used by server components / route handlers
 export function createClient() {
-  const cookieStore = cookies(); // ✅ no await
+  const cookieStore = cookies(); // NOTE: no await
 
   return createServerClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
