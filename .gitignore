@@ -1,0 +1,14 @@
+# Build artifacts
+node_modules
+.next
+out
+dist
+.vercel
+
+# Env & logs
+.env*
+npm-debug.log*
+yarn-error.log*
+
+# Supabase temp
+supabase/.temp
