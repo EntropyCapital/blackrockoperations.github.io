@@ -11,6 +11,8 @@ type Profile = {
   email?: string | null;
 };
 
+export const runtime = "nodejs";
+
 export default async function AdminDashboard() {
   const supabase = await createClient();
 
