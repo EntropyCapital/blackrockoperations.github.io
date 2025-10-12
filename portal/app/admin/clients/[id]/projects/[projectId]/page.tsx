@@ -7,6 +7,8 @@ import { Button } from "@/components/ui/button"
 import { ArrowLeft } from "lucide-react"
 import Link from "next/link"
 
+export const runtime = "nodejs";
+
 export default async function AdminProjectDetailPage({
   params,
 }: {
