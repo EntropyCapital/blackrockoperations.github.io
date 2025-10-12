@@ -1,59 +1,31 @@
-// portal/middleware.ts
-import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
-import { createServerClient } from "@supabase/ssr";
+import { NextResponse } from "next/server";
 
-export async function middleware(req: NextRequest) {
-  // Start with a pass-through response we can attach cookies to
-  const res = NextResponse.next();
+// Only guard /admin
+export const config = { matcher: ["/admin/:path*"] };
 
-  // Create an Edge-safe Supabase client bound to request/response cookies
-  const supabase = createServerClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
-    {
-      cookies: {
-        get(name: string) {
-          return req.cookies.get(name)?.value;
-        },
-        set(name: string, value: string, options: any) {
-          // make sure we persist any auth cookie changes
-          res.cookies.set({ name, value, ...options });
-        },
-        remove(name: string, options: any) {
-          res.cookies.set({ name, value: "", ...options, maxAge: 0 });
-        },
-      },
+export default function middleware(req: NextRequest) {
+  try {
+    // In middleware, cookies API is Edge – values are strings directly (no .value in older Next versions)
+    const access = req.cookies.get("sb-access-token");
+    const refresh = req.cookies.get("sb-refresh-token");
+
+    const isAuthed = Boolean(
+      (typeof access === "string" ? access : access?.value) ||
+      (typeof refresh === "string" ? refresh : refresh?.value)
+    );
+
+    if (!isAuthed) {
+      const url = req.nextUrl.clone();
+      url.pathname = "/auth/login";
+      url.searchParams.set("redirectedFrom", req.nextUrl.pathname);
+      return NextResponse.redirect(url);
     }
-  );
 
-  // v2 API – this exists on supabase-js v2
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
-
-  const { pathname } = req.nextUrl;
-
-  // Protect admin area
-  if (pathname.startsWith("/admin") && !user) {
-    const url = req.nextUrl.clone();
-    url.pathname = "/login";
-    return NextResponse.redirect(url);
+    return NextResponse.next();
+  } catch (err) {
+    // Never crash the request — fall through so you can see the page and check logs
+    console.error("middleware error", err);
+    return NextResponse.next();
   }
-
-  // Protect client area
-  if (pathname.startsWith("/client") && !user) {
-    const url = req.nextUrl.clone();
-    url.pathname = "/login";
-    return NextResponse.redirect(url);
-  }
-
-  return res;
 }
-
-// Exclude static assets and (optionally) the login page from middleware
-export const config = {
-  matcher: ["/((?!_next/static|_next/image|favicon.ico).*)"],
-  // If you want to avoid protecting /login add it to the negative lookahead:
-  // matcher: ["/((?!_next/static|_next/image|favicon.ico|login).*)"],
-};
