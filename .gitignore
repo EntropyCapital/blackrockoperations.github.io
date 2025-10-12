@@ -12,3 +12,6 @@ yarn-error.log*
 
 # Supabase temp
 supabase/.temp
+
+# stray nested folder
+blackrockoperations.github.io/
