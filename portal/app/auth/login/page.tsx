@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { Suspense, useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { createClient } from "@/lib/supabase/client";
@@ -9,7 +9,9 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 
-export default function LoginPage() {
+export const dynamic = "force-dynamic"; // prevent static prerender of this page
+
+function LoginForm() {
   const router = useRouter();
   const search = useSearchParams();
   const redirectTarget = search.get("redirectedFrom") || "/client";
@@ -24,7 +26,7 @@ export default function LoginPage() {
     const check = async () => {
       const supabase = createClient();
       const { data } = await supabase.auth.getUser();
-      if (data.user) router.replace("/admin"); // middleware will re-route non-admins to /client
+      if (data.user) router.replace("/admin"); // middleware will push non-admins to /client
     };
     check();
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -42,29 +44,18 @@ export default function LoginPage() {
       const { data, error } = await supabase.auth.signInWithPassword({ email, password });
       if (error) throw error;
 
-      // Safeguard: wait for the auth cookie to land before querying with RLS
+      // tiny delay so cookies are set before RLS reads
       await new Promise((r) => setTimeout(r, 50));
 
-      // Try to read role
       const uid = data.user.id;
-      const { data: profile, error: pErr } = await supabase
+      const { data: profile } = await supabase
         .from("profiles")
         .select("role")
         .eq("id", uid)
         .single();
 
-      if (pErr) {
-        // If profile read fails due to RLS/absence, just go to client dashboard
-        router.push("/client");
-        return;
-      }
-
-      if (profile?.role === "admin") {
-        router.push("/admin");
-      } else {
-        // if you came from middleware, honor it; otherwise /client
-        router.push(redirectTarget || "/client");
-      }
+      if (profile?.role === "admin") router.push("/admin");
+      else router.push(redirectTarget || "/client");
     } catch (err: unknown) {
       setError(err instanceof Error ? err.message : "Login failed");
     } finally {
@@ -130,5 +121,14 @@ export default function LoginPage() {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function LoginPage() {
+  // Suspense boundary needed because we use useSearchParams()
+  return (
+    <Suspense fallback={<div className="p-10 text-center">Loading…</div>}>
+      <LoginForm />
+    </Suspense>
   );
 }
