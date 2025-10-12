@@ -12,6 +12,7 @@ type Profile = {
 };
 
 export const runtime = "nodejs";
+export const dynamic = "force-dynamic"; // optional, ensures no accidental static
 
 export default async function AdminDashboard() {
   const supabase = await createClient();
