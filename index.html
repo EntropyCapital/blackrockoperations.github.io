@@ -74,10 +74,24 @@
   </div>
 
   <!-- Hero Section -->
-  <header id="top" class="w-full h-96 flex flex-col items-center justify-center text-center px-4 bg-white">
-    <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight" style="font-family:'Montserrat',sans-serif;">Strategy. Production. Development.</h1>
-    <p class="mt-4 text-base sm:text-lg md:text-xl max-w-xl">Transform your brand with high-impact videos that engage, convert, and grow your audience.</p>
-  </header>
+  <header 
+  id="top" 
+  class="w-full h-[28rem] flex flex-col items-center justify-center text-center px-4 bg-cover bg-center bg-no-repeat relative"
+  style="background-image: url('images/hero-bg.jpg');"
+>
+  <!-- Dark overlay so text pops -->
+  <div class="absolute inset-0 bg-black/40"></div>
+
+  <div class="relative z-10">
+    <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-white drop-shadow-xl" style="font-family:'Montserrat',sans-serif;">
+      Strategy. Production. Development.
+    </h1>
+
+    <p class="mt-4 text-base sm:text-lg md:text-xl max-w-xl mx-auto text-white drop-shadow-lg">
+      Transform your brand with high-impact videos that engage, convert, and grow your audience.
+    </p>
+  </div>
+</header>
 
   <!-- Why Work With Me -->
   <section id="about" class="py-16 px-6 bg-white">
@@ -288,6 +302,7 @@
 </script>
 </body>
 </html>
+
 
 
 
