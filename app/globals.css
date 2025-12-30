@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* This ensures every page starts with your dark background */
+body {
+  @apply bg-[#101010] text-white;
+}
