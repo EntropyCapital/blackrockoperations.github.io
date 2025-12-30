@@ -58,7 +58,7 @@ export default function CtaSection() {
 
             <p className="mt-3 max-w-xl text-base leading-relaxed text-white/70">
               If the work requires precision, discretion, and a clean approval chain,
-              we’ll align scope, timeline, and constraints—then execute.
+              we’ll align scope, timeline, and constraints-then execute.
             </p>
 
             {/* TRUST / SPECS */}
@@ -77,7 +77,7 @@ export default function CtaSection() {
               </div>
 
               <p className="mt-2 text-sm leading-relaxed text-white/70">
-                Send a short brief. If it’s a fit, you’ll get a tight plan and a clean
+                Send a short brief. If it’s a fit, you’ll get a plan and a clean
                 path to delivery.
               </p>
 
@@ -153,3 +153,4 @@ function MiniSpec({ label, value }) {
     </div>
   );
 }
+
