@@ -41,8 +41,10 @@ export default function FeaturedProject() {
             </h3>
 
             <p className="mt-3 max-w-xl text-base leading-relaxed text-white/70">
-              A concise 1–2 sentence summary of the objective, execution environment,
-              and outcome. Written like an ops brief: clear, minimal, and credible.
+              Responsible for external capture, range documentation, environmental acquisition, and on-location system observation.<br></br>
+              Responsible for footage processing, visual analysis, synchronization, and deliverable preparation under controlled standards.<br></br>
+              Oversees data integrity, redundancy, long-term archival, and controlled access of recorded materials.<br></br>
+              Manages internal coordination, external communications, and administrative continuity.
             </p>
 
             {/* BRIEF BLOCKS */}
@@ -79,3 +81,4 @@ function BriefItem({ label, text }) {
     </div>
   );
 }
+
