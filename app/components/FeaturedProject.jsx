@@ -20,11 +20,9 @@ export default function FeaturedProject() {
                 />
               </div>
             </div>
-
-            {/* Image metadata */}
             <div className="mt-3 flex justify-between text-[11px] uppercase tracking-[0.22em] text-white/40">
-              <span>VISUAL REFERENCE</span>
-              <span>SANITIZED PREVIEW</span>
+              <span>Visual Reference</span>
+              <span>Sanitized Preview</span>
             </div>
           </div>
         </div>
@@ -36,15 +34,12 @@ export default function FeaturedProject() {
               Case Study Preview
             </p>
 
-            <h3 className="mt-2 text-3xl font-semibold tracking-tight md:text-4xl">
-               <span className="text-white/90">[Administrative Results]</span>
+            <h3 className="mt-2 text-3xl font-semibold tracking-tight md:text-4xl text-white/90">
+              [Administrative Results]
             </h3>
 
             <p className="mt-3 max-w-xl text-base leading-relaxed text-white/70">
-              Responsible for external capture, range documentation, environmental acquisition, and on-location system observation.<br></br>
-              Responsible for footage processing, visual analysis, synchronization, and deliverable preparation under controlled standards.<br></br>
-              Oversees data integrity, redundancy, long-term archival, and controlled access of recorded materials.<br></br>
-              Manages internal coordination, external communications, and administrative continuity.
+              Led full-spectrum documentation, from field capture to final delivery. Managed footage, analysis, and archiving under strict controls to ensure clarity without compromising sensitive data.
             </p>
 
             {/* BRIEF BLOCKS */}
@@ -81,4 +76,3 @@ function BriefItem({ label, text }) {
     </div>
   );
 }
-
