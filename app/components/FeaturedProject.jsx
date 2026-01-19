@@ -39,7 +39,7 @@ export default function FeaturedProject() {
             </h3>
 
             <p className="mt-3 max-w-xl text-base leading-relaxed text-white/70">
-              Lead full-spectrum documentation, from field capture to final delivery. Manage footage, analysis, and archiving under strict controls to ensure clarity without compromising sensitive data.
+              Lead documentation, from field capture to final delivery. Manage footage, analysis, and archiving under strict controls to ensure clarity without compromising sensitive data.
             </p>
 
             {/* BRIEF BLOCKS */}
@@ -76,5 +76,6 @@ function BriefItem({ label, text }) {
     </div>
   );
 }
+
 
 
