@@ -39,8 +39,8 @@ export default function Navbar() {
             <Image
               src="/images/logo.svg"
               alt="Blackrock Operations Logo"
-              width={180}
-              height={40}
+              width={300}
+              height={300}
               className="h-10 w-auto object-contain"
               priority
             />
@@ -98,3 +98,4 @@ export default function Navbar() {
     </header>
   );
 }
+
