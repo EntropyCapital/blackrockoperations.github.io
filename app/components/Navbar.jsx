@@ -41,7 +41,7 @@ export default function Navbar() {
               alt="Blackrock Operations Logo"
               width={519}
               height={419}
-              className="h-10 w-auto object-contain"
+              className="w-[130px] h-auto" // adjust visually, keeps aspect ratio
               priority
             />
           </Link>
@@ -98,5 +98,6 @@ export default function Navbar() {
     </header>
   );
 }
+
 
 
