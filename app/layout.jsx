@@ -6,7 +6,7 @@ import { Inter } from "next/font/google";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  metadataBase: new URL("https://blackrockoperations.com"), // <-- change to your real domain
+  metadataBase: new URL("https://blackrockoperations.com"), // use your real domain
   title: "Blackrock Operations - Vision to Video",
   description: "Strategic video production for brands that demand impact.",
 
@@ -17,7 +17,7 @@ export const metadata = {
     siteName: "Blackrock Operations",
     images: [
       {
-        url: "/og.jpg", // file in /public
+        url: "/images/og.jpg", // ✅ correct path
         width: 1200,
         height: 630,
         alt: "Blackrock Operations",
@@ -31,7 +31,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "Blackrock Operations - Vision to Video",
     description: "Strategic video production for brands that demand impact.",
-    images: ["/og.jpg"],
+    images: ["/images/og.jpg"], // ✅ correct path
   },
 };
 
