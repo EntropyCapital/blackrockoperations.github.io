@@ -56,9 +56,9 @@ ${details}
     }
 
     return Response.json({ ok: true });
-} catch (err) {
-  return Response.json(
-    { ok: false, error: err.message || "Internal Error" }, 
-    { status: 500 }
-  );
-}
+  } catch (err) {
+    return Response.json(
+      { ok: false, error: "Server error sending message." },
+      { status: 500 }
+    );
+  }
