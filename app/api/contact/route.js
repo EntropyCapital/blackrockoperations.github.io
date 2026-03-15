@@ -17,10 +17,10 @@ export async function POST(req) {
       );
     }
 
-    const resend = new Resend(process.env.RESEND_API_KEY);
+    const resend = new Resend(process.env.re_JicmWcfp_6okFnpZF3gguRca2oNUDr7wu);
 
-    const to = process.env.CONTACT_TO_EMAIL;
-    const from = process.env.CONTACT_FROM_EMAIL || "onboarding@resend.dev";
+    const to = process.env.colton@blackrockoperations.com;
+    const from = process.env.CONTACT_FROM_EMAIL || "colton@blackrockoperations.com";
 
     if (!to) {
       return Response.json(
