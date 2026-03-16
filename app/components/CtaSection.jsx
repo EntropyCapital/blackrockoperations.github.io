@@ -28,9 +28,7 @@ export default function CtaSection() {
             </h3>
 
             <p className="mt-4 max-w-xl text-sm leading-relaxed text-white/50 md:text-base">
-              If the objective requires clinical precision and a secure approval chain, 
-              provide a brief via the established channel. We align on scope and 
-              constraints—then initiate.
+              Provide a brief via the established channel. 
             </p>
 
             {/* FIXED SPECS: Border-based stack for mobile, horizontal for desktop */}
