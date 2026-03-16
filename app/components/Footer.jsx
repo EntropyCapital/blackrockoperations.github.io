@@ -30,7 +30,7 @@ export default function Footer() {
               <ul className="space-y-2 font-mono text-[10px] uppercase tracking-widest">
                 <li>
                   <a 
-                    href="https://instagram.com/yourhandle" 
+                    href="https://www.instagram.com/blackrockoperations/" 
                     target="_blank" 
                     rel="noopener noreferrer" 
                     className="transition-colors hover:text-white"
