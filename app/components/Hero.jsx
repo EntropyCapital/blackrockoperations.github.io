@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import Image from "next/image";
 
 export default function Hero() {
@@ -55,7 +54,7 @@ export default function Hero() {
             <span className="text-white/90">Strategic Assets.</span>
           </h1>
 
-          <div className="mb-8 flex flex-col items-center gap-2">
+          <div className="mb-12 flex flex-col items-center gap-2">
              <p className="max-w-xl text-sm font-light leading-relaxed tracking-wide text-white/50 md:text-base">
                 Facilitating operational continuity and high-trust documentation 
                 for entities operating within discrete and contested environments.
@@ -65,23 +64,24 @@ export default function Hero() {
              </p>
           </div>
 
-          <div className="flex flex-col items-center gap-4">
-            <Link
-              href="#contact"
-              className="group relative overflow-hidden border border-white/20 bg-white/5 px-10 py-4 text-[11px] font-bold uppercase tracking-[0.3em] text-white transition-all hover:bg-white hover:text-black"
-            >
-              <span className="relative z-10 text-xs">Inquiry Protocol</span>
-              {/* Subtle hover "fill" effect */}
-              <div className="absolute inset-0 -translate-x-full bg-white transition-transform duration-300 group-hover:translate-x-0" />
-            </Link>
+          {/* System Status Indicators (Replacing the Button) */}
+          <div className="flex flex-col items-center gap-6">
+            <div className="h-px w-12 bg-white/10" />
             
-            {/* Status light */}
-            <div className="flex items-center gap-2 opacity-40">
-                <span className="relative flex h-2 w-2">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                    <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-                </span>
-                <span className="font-mono text-[9px] uppercase tracking-widest text-emerald-500">System Ready</span>
+            <div className="flex items-center gap-8">
+                {/* Status light */}
+                <div className="flex items-center gap-2 opacity-60">
+                    <span className="relative flex h-1.5 w-1.5">
+                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                        <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-500"></span>
+                    </span>
+                    <span className="font-mono text-[9px] uppercase tracking-[0.3em] text-emerald-500/80">System Ready</span>
+                </div>
+
+                {/* Uplink status */}
+                <div className="flex items-center gap-2 opacity-40">
+                    <span className="font-mono text-[9px] uppercase tracking-[0.3em] text-white">Secure Uplink: Established</span>
+                </div>
             </div>
           </div>
         </div>
