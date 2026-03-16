@@ -2,7 +2,48 @@
 @tailwind components;
 @tailwind utilities;
 
-/* This ensures every page starts with your dark background */
-body {
-  @apply bg-[#101010] text-white;
+@layer base {
+  :root {
+    --background: 0 0% 2%; /* #050505 */
+    --foreground: 0 0% 100%;
+  }
+
+  body {
+    @apply bg-[#050505] text-white antialiased;
+    /* This prevents the "gray" text effect and keeps fonts sharp */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+}
+
+/* Institutional Scrollbar Styling */
+@border-color: rgba(255, 255, 255, 0.05);
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #050505;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Remove blue highlight on mobile taps */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Custom selection color to match your Emerald status tags */
+::selection {
+  background: rgba(16, 185, 129, 0.2); /* Emerald 500 with opacity */
+  color: #ffffff;
 }
