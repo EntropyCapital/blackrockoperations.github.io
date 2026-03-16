@@ -5,7 +5,7 @@ export default function Domains() {
     {
       id: "01",
       title: "Signal Acquisition",
-      desc: "High-fidelity sensor integration and multi-spectral visual data capture in electromagnetically contested environments.",
+      desc: "High-fidelity sensor integration and multi-spectral visual data capture in austere and contested environments.",
       status: "OPERATIONAL"
     },
     {
@@ -16,15 +16,15 @@ export default function Domains() {
     },
     {
       id: "03",
-      title: "Asset Archival",
-      desc: "Tier-4 secure storage protocols and long-term retention of sensitive multi-format data assets.",
+      title: "Data Management",
+      desc: "Secure storage protocols and long-term retention of sensitive multi-format assets and institutional records.",
       status: "ENCRYPTED"
     }
   ];
 
   return (
     <div className="w-full">
-      {/* The "Database" Grid - No outer padding, snaps to your page.jsx container */}
+      {/* The "Database" Grid */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-white/10 border border-white/10">
         {domains.map((item) => (
           <div 
