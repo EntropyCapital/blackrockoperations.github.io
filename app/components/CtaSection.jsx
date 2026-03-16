@@ -55,23 +55,25 @@ export default function CtaSection() {
                 Direct outreach only. Transmit brief (scope / timeline / constraints) to the following node:
               </p>
 
-              <button
-                onClick={handleCopy}
-                className="group relative flex w-full flex-col items-center justify-center overflow-hidden border border-white/10 bg-white/5 p-6 transition-all hover:bg-white/10 active:scale-[0.98]"
-              >
-                <span className="font-mono text-[9px] uppercase tracking-widest text-white/30 mb-2">
-                  {copied ? "[ Status: Address Copied ]" : "Click to copy node address"}
-                </span>
-                
-                {/* Fixed truncation for mobile */}
-                <span className={`text-[12px] sm:text-lg font-mono tracking-tight transition-colors break-all ${copied ? 'text-emerald-400' : 'text-white/90'}`}>
-                  {email}
-                </span>
-                
-                {copied && (
-                  <div className="absolute bottom-0 left-0 h-[1px] w-full bg-emerald-500/50" />
-                )}
-              </button>
+             <button
+  onClick={handleCopy}
+  className="group relative flex w-full flex-col items-center justify-center overflow-hidden border border-white/10 bg-white/5 p-4 md:p-6 transition-all hover:bg-white/10 active:scale-[0.98]"
+>
+  <span className="font-mono text-[9px] uppercase tracking-widest text-white/30 mb-2 text-center">
+    {copied ? "[ Status: Address Copied ]" : "Click to copy node address"}
+  </span>
+  
+  {/* Reduced mobile font to 11px and added tracking-tighter. 
+      Removed break-all to keep the address on one line.
+  */}
+  <span className={`text-[11px] sm:text-lg font-mono tracking-tighter sm:tracking-tight transition-colors text-center w-full ${copied ? 'text-emerald-400' : 'text-white/90'}`}>
+    {email}
+  </span>
+  
+  {copied && (
+    <div className="absolute bottom-0 left-0 h-[1px] w-full bg-emerald-500/50" />
+  )}
+</button>
 
               <div className="mt-6 border-t border-white/5 pt-4 text-center">
                 <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-white/20">
