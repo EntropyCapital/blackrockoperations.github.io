@@ -13,11 +13,11 @@ export default function CtaSection() {
   };
 
   return (
-    <div className="border border-white/10 bg-[#050505]">
-      <div className="px-6 py-10 md:px-12 md:py-14">
+    <div className="border border-white/10 bg-[#050505] w-full">
+      <div className="px-5 py-10 md:px-12 md:py-14">
         <div className="grid gap-12 md:grid-cols-12 md:items-start">
           
-          {/* LEFT CONTENT: Mission Parameters */}
+          {/* LEFT CONTENT */}
           <div className="md:col-span-7">
             <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-white/30">
               Protocol // Intake_Availability
@@ -33,15 +33,15 @@ export default function CtaSection() {
               constraints—then initiate.
             </p>
 
-            {/* Responsive Specs: Stacks on mobile, 3-col on desktop */}
-            <div className="mt-8 grid gap-px bg-white/10 border border-white/10 sm:grid-cols-3">
+            {/* FIXED SPECS: Border-based stack for mobile, horizontal for desktop */}
+            <div className="mt-8 border border-white/10 divide-y divide-white/10 md:grid md:grid-cols-3 md:divide-y-0 md:divide-x">
               <MiniSpec label="Response" value="24–72 HRS" />
               <MiniSpec label="Engagement" value="LIMITED" />
               <MiniSpec label="Origin" value="MESA, AZ" />
             </div>
           </div>
 
-          {/* RIGHT CONTENT: Secure Channel */}
+          {/* RIGHT CONTENT */}
           <div className="md:col-span-5">
             <div className="border border-white/10 bg-white/[0.02] p-6 md:p-8">
               <div className="flex items-center gap-2 mb-4">
@@ -63,8 +63,8 @@ export default function CtaSection() {
                   {copied ? "[ Status: Address Copied ]" : "Click to copy node address"}
                 </span>
                 
-                {/* Responsive text size: smaller on mobile so it doesn't break */}
-                <span className={`text-[13px] sm:text-lg font-mono tracking-tight transition-colors truncate w-full ${copied ? 'text-emerald-400' : 'text-white/90'}`}>
+                {/* Fixed truncation for mobile */}
+                <span className={`text-[12px] sm:text-lg font-mono tracking-tight transition-colors break-all ${copied ? 'text-emerald-400' : 'text-white/90'}`}>
                   {email}
                 </span>
                 
@@ -88,7 +88,7 @@ export default function CtaSection() {
 
 function MiniSpec({ label, value }) {
   return (
-    <div className="bg-[#050505] p-5">
+    <div className="bg-transparent p-4 md:p-5">
       <div className="font-mono text-[9px] uppercase tracking-[0.2em] text-white/30">
         {label}
       </div>
