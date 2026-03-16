@@ -1,104 +1,69 @@
-import {
-  VideoCameraIcon,
-  ChatBubbleBottomCenterTextIcon,
-  CogIcon,
-} from "@heroicons/react/24/outline";
+"use client";
 
-/**
- * SECTION 01 — CAPABILITIES
- * Clean "ops brief" style capability cards.
- */
-export default function Philosophy() {
-  const capabilities = [
+export default function Domains() {
+  const domains = [
     {
-      id: "CAP-01",
-      icon: ChatBubbleBottomCenterTextIcon,
-      title: "Narrative & Messaging",
-      summary:
-        "Clarify the story, sharpen the message, and align creative with the mission.",
-      bullets: ["Creative brief", "Script + VO", "Messaging framework"],
+      id: "01",
+      title: "Signal Acquisition",
+      desc: "High-fidelity sensor integration and multi-spectral visual data capture in electromagnetically contested environments.",
+      status: "OPERATIONAL"
     },
     {
-      id: "CAP-02",
-      icon: VideoCameraIcon,
-      title: "Production & Post",
-      summary:
-        "Production and editorial built for credibility: composed, precise, and consistent.",
-      bullets: ["Field capture", "Edit + color", "Sound + delivery"],
+      id: "02",
+      title: "Narrative Engineering",
+      desc: "Strategic development of informational frameworks to ensure mission-concordant messaging across institutional stakeholders.",
+      status: "ACTIVE"
     },
     {
-      id: "CAP-03",
-      icon: CogIcon,
-      title: "Process & Delivery",
-      summary:
-        "A controlled pipeline: clean approvals, versioning, and predictable handoff.",
-      bullets: ["Milestones", "Review rounds", "Packaging + exports"],
-    },
+      id: "03",
+      title: "Asset Archival",
+      desc: "Tier-4 secure storage protocols and long-term retention of sensitive multi-format data assets.",
+      status: "ENCRYPTED"
+    }
   ];
 
   return (
-    <div className="mx-auto max-w-6xl">
-      {/* subtle top divider like your Featured block */}
-      <div className="mb-10 h-px w-full bg-white/10" />
+    <section className="w-full bg-[#050505] py-12 md:py-24">
+      <div className="container mx-auto px-6">
+        
+        {/* Classification Header */}
+        <div className="mb-12 border-l-2 border-white/20 pl-4">
+          <p className="font-mono text-[10px] tracking-[0.4em] text-white/30 uppercase mb-2">
+            Section 01 // Technical Domains
+          </p>
+          <h2 className="text-2xl md:text-4xl font-light tracking-tight text-white uppercase">
+            Operational Scope
+          </h2>
+        </div>
 
-      <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
-        {capabilities.map((cap) => {
-          const Icon = cap.icon;
-
-          return (
-            <div
-              key={cap.id}
-              className="rounded-xl border border-white/10 bg-white/[0.02] p-6"
-            >
-              {/* header row */}
-              <div className="mb-4 flex items-start justify-between">
-                <div className="flex items-center gap-3">
-                  <span className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-white/10 bg-black/20">
-                    <Icon className="h-5 w-5 text-orange-500" />
+        {/* The "Database" Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-white/10 border border-white/10">
+          {domains.map((item) => (
+            <div key={item.id} className="bg-[#050505] p-8 flex flex-col justify-between min-h-[280px]">
+              <div>
+                <div className="flex justify-between items-start mb-6">
+                  <span className="font-mono text-[10px] text-white/20">REF_{item.id}</span>
+                  <span className="text-[9px] font-mono px-2 py-0.5 border border-emerald-500/30 text-emerald-500/70 bg-emerald-500/5">
+                    {item.status}
                   </span>
-
-                  <div>
-                    <div className="text-[11px] uppercase tracking-[0.28em] text-white/50">
-                      {cap.id} // ACTIVE
-                    </div>
-                    <h3 className="mt-1 text-xl font-semibold">{cap.title}</h3>
-                  </div>
                 </div>
-
-                <div className="text-[11px] uppercase tracking-[0.28em] text-white/40">
-                  BRIEF
-                </div>
+                <h3 className="text-lg font-medium text-white mb-4 uppercase tracking-wider">
+                  {item.title}
+                </h3>
+                <p className="text-sm leading-relaxed text-white/40 font-light">
+                  {item.desc}
+                </p>
               </div>
-
-              {/* body */}
-              <p className="text-sm leading-relaxed text-white/70">
-                {cap.summary}
-              </p>
-
-              <div className="my-5 h-px w-full bg-white/10" />
-
-              {/* deliverables line */}
-              <div className="text-[11px] uppercase tracking-[0.28em] text-white/45">
-                Deliverables
+              
+              <div className="mt-8 pt-4 border-t border-white/[0.03]">
+                <p className="font-mono text-[8px] text-white/10 tracking-widest">
+                  BLACKROCK_OPS // PROTOCOL_{item.id}
+                </p>
               </div>
-
-              <ul className="mt-3 space-y-2 text-sm text-white/70">
-                {cap.bullets.map((b) => (
-                  <li key={b} className="flex items-start gap-3">
-                    <span className="mt-2 h-1.5 w-1.5 rounded-full bg-orange-500/80" />
-                    <span>{b}</span>
-                  </li>
-                ))}
-              </ul>
             </div>
-          );
-        })}
+          ))}
+        </div>
       </div>
-
-      {/* bottom note line (matches your “details available…” vibe) */}
-      <div className="mt-8 text-[11px] uppercase tracking-[0.28em] text-white/35">
-        Scope scaled to engagement // NDA-compatible workflows available
-      </div>
-    </div>
+    </section>
   );
 }
