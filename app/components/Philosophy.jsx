@@ -23,47 +23,45 @@ export default function Domains() {
   ];
 
   return (
-    <section className="w-full bg-[#050505] py-12 md:py-24">
-      <div className="container mx-auto px-6">
-        
-        {/* Classification Header */}
-        <div className="mb-12 border-l-2 border-white/20 pl-4">
-          <p className="font-mono text-[10px] tracking-[0.4em] text-white/30 uppercase mb-2">
-            Section 01 // Technical Domains
-          </p>
-          <h2 className="text-2xl md:text-4xl font-light tracking-tight text-white uppercase">
-            Operational Scope
-          </h2>
-        </div>
-
-        {/* The "Database" Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-white/10 border border-white/10">
-          {domains.map((item) => (
-            <div key={item.id} className="bg-[#050505] p-8 flex flex-col justify-between min-h-[280px]">
-              <div>
-                <div className="flex justify-between items-start mb-6">
-                  <span className="font-mono text-[10px] text-white/20">REF_{item.id}</span>
-                  <span className="text-[9px] font-mono px-2 py-0.5 border border-emerald-500/30 text-emerald-500/70 bg-emerald-500/5">
-                    {item.status}
-                  </span>
-                </div>
-                <h3 className="text-lg font-medium text-white mb-4 uppercase tracking-wider">
-                  {item.title}
-                </h3>
-                <p className="text-sm leading-relaxed text-white/40 font-light">
-                  {item.desc}
-                </p>
+    <div className="w-full">
+      {/* The "Database" Grid - No outer padding, snaps to your page.jsx container */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-white/10 border border-white/10">
+        {domains.map((item) => (
+          <div 
+            key={item.id} 
+            className="bg-[#050505] p-8 flex flex-col justify-between min-h-[280px] group hover:bg-[#080808] transition-colors duration-500"
+          >
+            <div>
+              <div className="flex justify-between items-start mb-6">
+                <span className="font-mono text-[10px] text-white/20 tracking-tighter">REF_ID // {item.id}</span>
+                <span className={`text-[9px] font-mono px-2 py-0.5 border ${
+                  item.status === 'ENCRYPTED' 
+                  ? 'border-white/20 text-white/40 bg-white/5' 
+                  : 'border-emerald-500/30 text-emerald-500/70 bg-emerald-500/5'
+                }`}>
+                  [{item.status}]
+                </span>
               </div>
               
-              <div className="mt-8 pt-4 border-t border-white/[0.03]">
-                <p className="font-mono text-[8px] text-white/10 tracking-widest">
-                  BLACKROCK_OPS // PROTOCOL_{item.id}
-                </p>
-              </div>
+              <h3 className="text-lg font-medium text-white mb-4 uppercase tracking-[0.1em]">
+                {item.title}
+              </h3>
+              
+              <p className="text-sm leading-relaxed text-white/40 font-light max-w-[260px]">
+                {item.desc}
+              </p>
             </div>
-          ))}
-        </div>
+            
+            <div className="mt-8 pt-4 border-t border-white/[0.03] flex justify-between items-center">
+              <p className="font-mono text-[8px] text-white/10 tracking-widest">
+                AUTH_REQ // P_{item.id}
+              </p>
+              {/* Subtle visual marker */}
+              <div className="h-1 w-1 bg-white/10 group-hover:bg-emerald-500/40 transition-colors" />
+            </div>
+          </div>
+        ))}
       </div>
-    </section>
+    </div>
   );
 }
