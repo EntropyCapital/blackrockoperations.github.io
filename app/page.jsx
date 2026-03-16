@@ -1,6 +1,5 @@
 import Hero from "./components/Hero";
 import Philosophy from "./components/Philosophy";
-import FeaturedProject from "./components/FeaturedProject";
 import ClientLogos from "./components/ClientLogos";
 import CtaSection from "./components/CtaSection";
 import SectionSlate from "./components/SectionSlate";
@@ -10,7 +9,7 @@ export default function Home() {
     <main className="bg-[#050505] text-white">
       <Hero />
 
-      {/* SECTION 01: FLUSH START */}
+      {/* SECTION 01: TECHNICAL DOMAINS */}
       <section
         id="operations"
         className="mx-auto max-w-7xl px-6 pt-12 pb-20 md:pt-16 md:pb-28"
@@ -26,30 +25,14 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SECTION 02 */}
-      <section
-        id="archive"
-        className="mx-auto max-w-7xl px-6 pt-20 pb-20 md:pt-28 md:pb-28 border-t border-white/[0.03]"
-      >
-        <SectionSlate
-          section="REF"
-          number="02"
-          title="Field Documentation"
-          meta="LOG_TYPE: ACTIVE_RECOVERY"
-        />
-        <div className="mt-10">
-          <FeaturedProject />
-        </div>
-      </section>
-
-      {/* SECTION 03 */}
+      {/* SECTION 02: STRATEGIC SECTORS */}
       <section
         id="sectors"
         className="mx-auto max-w-7xl px-6 pt-20 pb-20 md:pt-28 md:pb-28 border-t border-white/[0.03]"
       >
         <SectionSlate
           section="REF"
-          number="03"
+          number="02"
           title="Strategic Sectors"
           meta="DISTRIBUTION: CONTROLLED"
           align="left"
@@ -59,14 +42,14 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SECTION 04 */}
+      {/* SECTION 03: INQUIRY PROTOCOL */}
       <section
         id="intake"
         className="mx-auto max-w-7xl px-6 pt-20 pb-20 md:pt-28 md:pb-28 border-t border-white/[0.03]"
       >
         <SectionSlate
           section="REF"
-          number="04"
+          number="03"
           title="Inquiry Protocol"
           meta="STATUS: SECURE_LINE_OPEN"
           align="left"
