@@ -13,63 +13,70 @@ export default function CtaSection() {
   };
 
   return (
-    <div className="border border-white/10 bg-[#0e0e0e]">
-      <div className="px-6 py-12 md:px-12 md:py-14">
-        <div className="grid gap-10 md:grid-cols-12 md:items-start">
-          {/* LEFT CONTENT */}
+    <div className="border border-white/10 bg-[#050505]">
+      <div className="px-6 py-10 md:px-12 md:py-14">
+        <div className="grid gap-12 md:grid-cols-12 md:items-start">
+          
+          {/* LEFT CONTENT: Mission Parameters */}
           <div className="md:col-span-7">
-            <p className="text-[11px] uppercase tracking-[0.24em] text-white/45">
-              Intake / Availability
+            <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-white/30">
+              Protocol // Intake_Availability
             </p>
 
-            <h3 className="mt-2 text-3xl font-semibold tracking-tight md:text-4xl">
-              Request a Project Review
+            <h3 className="mt-4 text-3xl font-medium tracking-tighter text-white md:text-4xl">
+              Request Project Review
             </h3>
 
-            <p className="mt-3 max-w-xl text-base leading-relaxed text-white/70">
-              If the work requires precision, discretion, and a clean approval chain,
-              we’ll align scope, timeline, and constraints—then execute.
+            <p className="mt-4 max-w-xl text-sm leading-relaxed text-white/50 md:text-base">
+              If the objective requires clinical precision and a secure approval chain, 
+              provide a brief via the established channel. We align on scope and 
+              constraints—then initiate.
             </p>
 
-            <div className="mt-6 grid gap-3 sm:grid-cols-3">
-              <MiniSpec label="Response window" value="24–72 HRS" />
-              <MiniSpec label="Engagement type" value="LIMITED" />
-              <MiniSpec label="Location" value="MESA, AZ" />
+            {/* Responsive Specs: Stacks on mobile, 3-col on desktop */}
+            <div className="mt-8 grid gap-px bg-white/10 border border-white/10 sm:grid-cols-3">
+              <MiniSpec label="Response" value="24–72 HRS" />
+              <MiniSpec label="Engagement" value="LIMITED" />
+              <MiniSpec label="Origin" value="MESA, AZ" />
             </div>
           </div>
 
-          {/* RIGHT CONTENT */}
+          {/* RIGHT CONTENT: Secure Channel */}
           <div className="md:col-span-5">
-            <div className="border border-white/10 bg-black/20 p-6">
-              <div className="text-[11px] uppercase tracking-[0.24em] text-white/50">
-                Next step
+            <div className="border border-white/10 bg-white/[0.02] p-6 md:p-8">
+              <div className="flex items-center gap-2 mb-4">
+                <div className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-white/40">
+                  Secure Channel
+                </span>
               </div>
 
-              <p className="mt-2 text-sm leading-relaxed text-white/70">
-                Direct outreach only. Copy the address below to send a brief (scope / timeline / constraints).
+              <p className="text-xs leading-relaxed text-white/60 mb-6">
+                Direct outreach only. Transmit brief (scope / timeline / constraints) to the following node:
               </p>
 
-              <div className="mt-6">
-                <button
-                  onClick={handleCopy}
-                  className="group relative flex w-full flex-col items-center justify-center overflow-hidden border border-white/10 bg-white/5 px-6 py-8 transition-all hover:bg-white/10 active:scale-[0.98]"
-                >
-                  <span className="text-[10px] uppercase tracking-widest text-white/40 mb-1">
-                    {copied ? "Status: Copied" : "Click to copy address"}
-                  </span>
-                  <span className={`text-lg font-medium tracking-tight transition-colors ${copied ? 'text-orange-500' : 'text-white'}`}>
-                    {email}
-                  </span>
-                  
-                  {/* Subtle underline progress for the "Copied" state */}
-                  {copied && (
-                    <div className="absolute bottom-0 left-0 h-[2px] w-full bg-orange-600 animate-in fade-in slide-in-from-left duration-500" />
-                  )}
-                </button>
-              </div>
+              <button
+                onClick={handleCopy}
+                className="group relative flex w-full flex-col items-center justify-center overflow-hidden border border-white/10 bg-white/5 p-6 transition-all hover:bg-white/10 active:scale-[0.98]"
+              >
+                <span className="font-mono text-[9px] uppercase tracking-widest text-white/30 mb-2">
+                  {copied ? "[ Status: Address Copied ]" : "Click to copy node address"}
+                </span>
+                
+                {/* Responsive text size: smaller on mobile so it doesn't break */}
+                <span className={`text-[13px] sm:text-lg font-mono tracking-tight transition-colors truncate w-full ${copied ? 'text-emerald-400' : 'text-white/90'}`}>
+                  {email}
+                </span>
+                
+                {copied && (
+                  <div className="absolute bottom-0 left-0 h-[1px] w-full bg-emerald-500/50" />
+                )}
+              </button>
 
-              <div className="mt-6 border-t border-white/10 pt-4 text-[11px] uppercase tracking-[0.22em] text-white/40">
-                No public work listings. Presence only.
+              <div className="mt-6 border-t border-white/5 pt-4 text-center">
+                <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-white/20">
+                  No public listings. Presence only.
+                </p>
               </div>
             </div>
           </div>
@@ -81,11 +88,11 @@ export default function CtaSection() {
 
 function MiniSpec({ label, value }) {
   return (
-    <div className="border border-white/10 bg-black/20 p-4">
-      <div className="text-[11px] uppercase tracking-[0.24em] text-white/50">
+    <div className="bg-[#050505] p-5">
+      <div className="font-mono text-[9px] uppercase tracking-[0.2em] text-white/30">
         {label}
       </div>
-      <div className="mt-2 text-sm font-semibold tracking-tight text-white/85">
+      <div className="mt-1 text-xs font-medium tracking-widest text-white/70">
         {value}
       </div>
     </div>
