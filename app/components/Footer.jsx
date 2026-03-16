@@ -1,6 +1,6 @@
 /**
  * The main site footer.
- * Stripped of navigation to maintain institutional anonymity.
+ * Stripped of navigation and refined for institutional anonymity.
  */
 export default function Footer() {
   return (
@@ -10,7 +10,7 @@ export default function Footer() {
           
           {/* Logo and Copyright */}
           <div className="flex flex-col gap-2">
-            <h3 className="text-sm font-medium tracking-tighter text-white uppercase italic">
+            <h3 className="text-sm font-medium tracking-tighter text-white uppercase">
               Blackrock Operations
             </h3>
             <p className="font-mono text-[10px] uppercase tracking-widest">
@@ -29,13 +29,14 @@ export default function Footer() {
               </h4>
               <ul className="space-y-2 font-mono text-[10px] uppercase tracking-widest">
                 <li>
-                  <a href="#" className="transition-colors hover:text-white">Vimeo</a>
-                </li>
-                <li>
-                  <a href="#" className="transition-colors hover:text-white">Instagram</a>
-                </li>
-                <li>
-                  <a href="#" className="transition-colors hover:text-white">LinkedIn</a>
+                  <a 
+                    href="https://instagram.com/yourhandle" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="transition-colors hover:text-white"
+                  >
+                    Instagram
+                  </a>
                 </li>
               </ul>
             </div>
