@@ -11,7 +11,7 @@ export default function Navbar() {
         <div className="container mx-auto px-6 py-2">
           <div className="flex items-center text-[9px] uppercase tracking-[0.4em] text-white/30 font-mono">
             <p>
-              LOC: <span className="text-white/60">33.4151° N, 111.8315° W</span> 
+              SERVER LOC: <span className="text-white/60">33.4151° N, 111.8315° W</span> 
               <span className="mx-4 text-white/10">|</span> 
               SYS_STATUS: <span className="text-emerald-500/60">ACTIVE</span>
             </p>
