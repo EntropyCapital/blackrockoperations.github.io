@@ -27,8 +27,7 @@ export default function Hero() {
 
           <div className="flex flex-col items-center gap-2">
             <p className="max-w-md text-[11px] md:text-base font-light leading-relaxed tracking-wide text-white/40">
-              Facilitating operational continuity and high-trust documentation
-              for entities operating within discrete and contested environments.
+              Video production and documentation for defense, R&D, and high-risk environments.
             </p>
 
             <div className="my-1 h-px w-6 bg-white/10 md:my-4" />
