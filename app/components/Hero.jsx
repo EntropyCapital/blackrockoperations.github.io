@@ -42,7 +42,7 @@ export default function Hero() {
               alt="Blackrock Operations Logo"
               width={519}
               height={419}
-             className="w-[70px] md:w-[90px] lg:w-[110px] h-auto opacity-100 transition-all duration-500"
+             className="w-[70px] md:w-[70px] lg:w-[140px] xl:w-[180px] h-auto opacity-100 transition-all duration-500"
               priority
             />
           </div>
