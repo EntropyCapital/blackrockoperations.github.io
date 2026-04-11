@@ -14,7 +14,7 @@ export default function Hero() {
         
         {/* MEDIA PLACEHOLDER */}
         {/* <video
-          src="/videos/hero-loop.mp4"
+          src="/public/images/hero-loop.mp4"
           autoPlay
           loop
           muted
