@@ -53,10 +53,6 @@ export default function Hero() {
           <div className="absolute right-8 top-2 font-mono text-[8px] uppercase tracking-[0.28em] text-emerald-300/35 md:right-10 md:top-3 md:text-[9px]">
             Rec ●
           </div>
-
-          <div className="absolute bottom-2 left-8 font-mono text-[8px] uppercase tracking-[0.28em] text-white/22 md:bottom-3 md:left-10 md:text-[9px]">
-            Mesa, AZ // Surveillance Relay
-          </div>
         </div>
 
         {/* Content */}
@@ -68,8 +64,7 @@ export default function Hero() {
 
           <div className="flex flex-col items-center gap-2">
             <p className="max-w-md text-[11px] font-light leading-relaxed tracking-wide text-white/50 md:text-base">
-              Facilitating operational continuity and high-trust documentation
-              for entities operating within discrete and contested environments.
+              Video production and documentation for defense, R&D, and high-risk environments.
             </p>
 
             <div className="my-1 h-px w-6 bg-white/10 md:my-4" />
@@ -83,17 +78,17 @@ export default function Hero() {
 
       <style jsx>{`
         .scanlines {
-          background-image: repeating-linear-gradient(
-            to bottom,
-            rgba(255, 255, 255, 0.045) 0px,
-            rgba(255, 255, 255, 0.045) 1px,
-            transparent 2px,
-            transparent 4px
-          );
-          background-size: 100% 4px;
-          animation: scanlineDrift 10s linear infinite;
-          will-change: transform;
-        }
+  background-image: repeating-linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.08) 0px,
+    rgba(255, 255, 255, 0.08) 1px,
+    transparent 2px,
+    transparent 3px
+  );
+  background-size: 100% 3px;
+  animation: scanlineDrift 6s linear infinite;
+  mix-blend-mode: overlay;
+}
 
         .noise {
           background-image:
@@ -161,15 +156,15 @@ export default function Hero() {
         @keyframes noiseShift {
           0% {
             transform: translate3d(0, 0, 0);
-            opacity: 0.05;
+            opacity: 0.25;
           }
           25% {
             transform: translate3d(-1px, 1px, 0);
-            opacity: 0.06;
+            opacity: 0.25;
           }
           50% {
             transform: translate3d(1px, -1px, 0);
-            opacity: 0.05;
+            opacity: 0.25;
           }
           75% {
             transform: translate3d(1px, 1px, 0);
@@ -177,7 +172,7 @@ export default function Hero() {
           }
           100% {
             transform: translate3d(0, 0, 0);
-            opacity: 0.05;
+            opacity: 0.25;
           }
         }
       `}</style>
