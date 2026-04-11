@@ -17,40 +17,43 @@ export default function Hero() {
         />
 
         {/* Base darkening */}
-        <div className="absolute inset-0 z-10 bg-black/28" />
+        <div className="absolute inset-0 z-10 bg-black/34" />
 
         {/* Surveillance overlay */}
         <div className="pointer-events-none absolute inset-0 z-20 overflow-hidden">
           {/* Vignette */}
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_36%,rgba(0,0,0,0.44)_100%)]" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_32%,rgba(0,0,0,0.5)_100%)]" />
 
-          {/* Subtle cool tint */}
-          <div className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(140,255,220,0.05),rgba(255,255,255,0.02),rgba(0,0,0,0.12))]" />
+          {/* Stronger cool tint */}
+          <div className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(140,255,220,0.08),rgba(255,255,255,0.03),rgba(0,0,0,0.18))]" />
 
           {/* Animated scanlines */}
-          <div className="scanlines absolute inset-0 opacity-[0.12]" />
+          <div className="scanlines absolute inset-0 opacity-[0.22]" />
 
           {/* Animated noise */}
-          <div className="noise absolute inset-0 opacity-[0.055]" />
+          <div className="noise absolute inset-0 opacity-[0.12]" />
+
+          {/* Subtle flicker */}
+          <div className="flicker absolute inset-0 opacity-[0.06]" />
 
           {/* Moving grid */}
-          <div className="surveillance-grid absolute inset-0 opacity-[0.06]" />
+          <div className="surveillance-grid absolute inset-0 opacity-[0.09]" />
 
           {/* Sweep line */}
-          <div className="sweep-line absolute inset-0 opacity-[0.11]" />
+          <div className="sweep-line absolute inset-0 opacity-[0.16]" />
 
           {/* Corner brackets */}
-          <div className="absolute left-6 top-6 h-12 w-12 border-l border-t border-emerald-300/25" />
-          <div className="absolute right-6 top-6 h-12 w-12 border-r border-t border-emerald-300/25" />
-          <div className="absolute bottom-6 left-6 h-12 w-12 border-b border-l border-emerald-300/25" />
-          <div className="absolute bottom-6 right-6 h-12 w-12 border-b border-r border-emerald-300/25" />
+          <div className="absolute left-6 top-6 h-12 w-12 border-l border-t border-emerald-300/30" />
+          <div className="absolute right-6 top-6 h-12 w-12 border-r border-t border-emerald-300/30" />
+          <div className="absolute bottom-6 left-6 h-12 w-12 border-b border-l border-emerald-300/30" />
+          <div className="absolute bottom-6 right-6 h-12 w-12 border-b border-r border-emerald-300/30" />
 
-          {/* HUD text - moved away from brackets */}
-          <div className="absolute left-8 top-2 font-mono text-[8px] uppercase tracking-[0.28em] text-emerald-300/40 md:left-10 md:top-3 md:text-[9px]">
+          {/* HUD text */}
+          <div className="absolute left-8 top-2 font-mono text-[8px] uppercase tracking-[0.28em] text-emerald-300/45 md:left-10 md:top-3 md:text-[9px]">
             Feed Active // Node 01
           </div>
 
-          <div className="absolute right-8 top-2 font-mono text-[8px] uppercase tracking-[0.28em] text-emerald-300/35 md:right-10 md:top-3 md:text-[9px]">
+          <div className="absolute right-8 top-2 font-mono text-[8px] uppercase tracking-[0.28em] text-emerald-300/40 md:right-10 md:top-3 md:text-[9px]">
             Rec ●
           </div>
         </div>
@@ -63,8 +66,8 @@ export default function Hero() {
           </h1>
 
           <div className="flex flex-col items-center gap-2">
-            <p className="max-w-md text-[11px] font-light leading-relaxed tracking-wide text-white/50 md:text-base">
-              Video production and documentation for defense, R&D, and high-risk environments.
+            <p className="max-w-md text-[11px] font-light leading-relaxed tracking-wide text-white/55 md:text-base">
+              Video production and documentation for defense, R&amp;D, and high-risk environments.
             </p>
 
             <div className="my-1 h-px w-6 bg-white/10 md:my-4" />
@@ -78,35 +81,43 @@ export default function Hero() {
 
       <style jsx>{`
         .scanlines {
-  background-image: repeating-linear-gradient(
-    to bottom,
-    rgba(255, 255, 255, 0.08) 0px,
-    rgba(255, 255, 255, 0.08) 1px,
-    transparent 2px,
-    transparent 3px
-  );
-  background-size: 100% 3px;
-  animation: scanlineDrift 6s linear infinite;
-  mix-blend-mode: overlay;
-}
+          background-image: repeating-linear-gradient(
+            to bottom,
+            rgba(255, 255, 255, 0.08) 0px,
+            rgba(255, 255, 255, 0.08) 1px,
+            transparent 2px,
+            transparent 3px
+          );
+          background-size: 100% 3px;
+          animation: scanlineDrift 6s linear infinite;
+          mix-blend-mode: overlay;
+          will-change: transform;
+        }
 
         .noise {
           background-image:
-            radial-gradient(rgba(255, 255, 255, 0.22) 0.6px, transparent 0.8px),
-            radial-gradient(rgba(120, 255, 210, 0.12) 0.5px, transparent 0.7px);
-          background-size: 3px 3px, 5px 5px;
+            radial-gradient(rgba(255, 255, 255, 0.35) 0.7px, transparent 1px),
+            radial-gradient(rgba(120, 255, 210, 0.18) 0.6px, transparent 1px);
+          background-size: 2px 2px, 3px 3px;
           background-position: 0 0, 1px 1px;
-          mix-blend-mode: soft-light;
-          animation: noiseShift 0.25s steps(2) infinite;
+          mix-blend-mode: overlay;
+          animation: noiseShift 0.12s steps(3) infinite;
           will-change: transform, opacity;
+        }
+
+        .flicker {
+          background: rgba(255, 255, 255, 0.04);
+          animation: flicker 0.15s infinite;
+          mix-blend-mode: overlay;
+          will-change: opacity;
         }
 
         .surveillance-grid {
           background-image:
-            linear-gradient(rgba(120, 255, 210, 0.1) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(120, 255, 210, 0.1) 1px, transparent 1px);
+            linear-gradient(rgba(120, 255, 210, 0.12) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(120, 255, 210, 0.12) 1px, transparent 1px);
           background-size: 96px 96px;
-          animation: gridDrift 22s linear infinite;
+          animation: gridDrift 18s linear infinite;
           will-change: transform;
         }
 
@@ -117,12 +128,12 @@ export default function Hero() {
           background: linear-gradient(
             to bottom,
             transparent 0%,
-            transparent 46%,
-            rgba(140, 255, 220, 0.07) 50%,
-            transparent 54%,
+            transparent 45%,
+            rgba(140, 255, 220, 0.12) 50%,
+            transparent 55%,
             transparent 100%
           );
-          animation: sweep 6.5s linear infinite;
+          animation: sweep 5s linear infinite;
           will-change: transform;
         }
 
@@ -149,30 +160,42 @@ export default function Hero() {
             transform: translateY(0);
           }
           100% {
-            transform: translateY(4px);
+            transform: translateY(3px);
           }
         }
 
         @keyframes noiseShift {
           0% {
             transform: translate3d(0, 0, 0);
-            opacity: 0.25;
+            opacity: 0.1;
           }
           25% {
             transform: translate3d(-1px, 1px, 0);
-            opacity: 0.25;
+            opacity: 0.12;
           }
           50% {
             transform: translate3d(1px, -1px, 0);
-            opacity: 0.25;
+            opacity: 0.1;
           }
           75% {
             transform: translate3d(1px, 1px, 0);
-            opacity: 0.065;
+            opacity: 0.135;
           }
           100% {
             transform: translate3d(0, 0, 0);
-            opacity: 0.25;
+            opacity: 0.1;
+          }
+        }
+
+        @keyframes flicker {
+          0% {
+            opacity: 0.03;
+          }
+          50% {
+            opacity: 0.07;
+          }
+          100% {
+            opacity: 0.03;
           }
         }
       `}</style>
