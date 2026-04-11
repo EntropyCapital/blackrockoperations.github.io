@@ -19,7 +19,7 @@ export default function Hero() {
         />
 
         {/* Base darkening */}
-        <div className="absolute inset-0 z-10 bg-black/34" />
+        <div className="absolute inset-0 z-10 bg-black/40" />
 
         {/* Surveillance overlay */}
         <div className="pointer-events-none absolute inset-0 z-20 overflow-hidden">
@@ -42,24 +42,24 @@ export default function Hero() {
               alt="Blackrock Operations Logo"
               width={519}
               height={419}
-              className="w-[70px] md:w-[90px] lg:w-[110px] h-auto opacity-70 hover:opacity-100 transition-all duration-500 grayscale hover:grayscale-0"
+             className="w-[70px] md:w-[90px] lg:w-[110px] h-auto opacity-100 transition-all duration-500"
               priority
             />
           </div>
 
           <h1 className="mb-2 max-w-4xl text-2xl font-medium tracking-tighter md:mb-6 md:text-6xl lg:text-7xl">
             Information Logistics & <br />
-            <span className="text-white/92">Strategic Assets.</span>
+            <span className="text-white">Strategic Assets.</span>
           </h1>
 
           <div className="flex flex-col items-center gap-2">
-            <p className="max-w-md text-[11px] font-light leading-relaxed tracking-wide text-white/55 md:text-base">
+            <p className="max-w-md text-[11px] font-light leading-relaxed tracking-wide text-white md:text-base">
               Video production and documentation for defense, R&amp;D, and high-risk environments.
             </p>
 
-            <div className="my-1 h-px w-6 bg-white/10 md:my-4" />
+            <div className="my-1 h-px w-6 bg-white/30 md:my-4" />
 
-            <p className="font-mono text-[7px] uppercase tracking-[0.3em] text-white/20 md:text-[9px]">
+            <p className="font-mono text-[7px] uppercase tracking-[0.3em] text-white md:text-[9px]">
               Established MMXXV // Mesa, AZ
             </p>
           </div>
