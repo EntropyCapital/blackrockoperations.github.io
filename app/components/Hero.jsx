@@ -42,20 +42,6 @@ export default function Hero() {
           {/* Sweep line */}
           <div className="sweep-line absolute inset-0 opacity-[0.16]" />
 
-          {/* Corner brackets */}
-          <div className="absolute left-6 top-6 h-12 w-12 border-l border-t border-emerald-300/30" />
-          <div className="absolute right-6 top-6 h-12 w-12 border-r border-t border-emerald-300/30" />
-          <div className="absolute bottom-6 left-6 h-12 w-12 border-b border-l border-emerald-300/30" />
-          <div className="absolute bottom-6 right-6 h-12 w-12 border-b border-r border-emerald-300/30" />
-
-          {/* HUD text */}
-          <div className="absolute left-8 top-2 font-mono text-[8px] uppercase tracking-[0.28em] text-emerald-300/45 md:left-10 md:top-3 md:text-[9px]">
-            Feed Active // Node 01
-          </div>
-
-          <div className="absolute right-8 top-2 font-mono text-[8px] uppercase tracking-[0.28em] text-emerald-300/40 md:right-10 md:top-3 md:text-[9px]">
-            Rec ●
-          </div>
         </div>
 
         {/* Content */}
