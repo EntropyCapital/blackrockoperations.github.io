@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+
 export default function Hero() {
   return (
     <section
@@ -21,31 +23,30 @@ export default function Hero() {
 
         {/* Surveillance overlay */}
         <div className="pointer-events-none absolute inset-0 z-20 overflow-hidden">
-          {/* Vignette */}
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_32%,rgba(0,0,0,0.5)_100%)]" />
-
-          {/* Stronger cool tint */}
           <div className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(140,255,220,0.08),rgba(255,255,255,0.03),rgba(0,0,0,0.18))]" />
-
-          {/* Animated scanlines */}
           <div className="scanlines absolute inset-0 opacity-[0.22]" />
-
-          {/* Animated noise */}
           <div className="noise absolute inset-0 opacity-[0.12]" />
-
-          {/* Subtle flicker */}
           <div className="flicker absolute inset-0 opacity-[0.06]" />
-
-          {/* Moving grid */}
           <div className="surveillance-grid absolute inset-0 opacity-[0.09]" />
-
-          {/* Sweep line */}
           <div className="sweep-line absolute inset-0 opacity-[0.16]" />
-
         </div>
 
         {/* Content */}
         <div className="relative z-30 flex h-full flex-col items-center justify-center px-6 text-center text-white">
+          
+          {/* 🔥 LOGO ADDED HERE */}
+          <div className="mb-4 md:mb-6">
+            <Image
+              src="/images/logo.svg"
+              alt="Blackrock Operations Logo"
+              width={519}
+              height={419}
+              className="w-[70px] md:w-[90px] lg:w-[110px] h-auto opacity-70 hover:opacity-100 transition-all duration-500 grayscale hover:grayscale-0"
+              priority
+            />
+          </div>
+
           <h1 className="mb-2 max-w-4xl text-2xl font-medium tracking-tighter md:mb-6 md:text-6xl lg:text-7xl">
             Information Logistics & <br />
             <span className="text-white/92">Strategic Assets.</span>
@@ -77,7 +78,6 @@ export default function Hero() {
           background-size: 100% 3px;
           animation: scanlineDrift 6s linear infinite;
           mix-blend-mode: overlay;
-          will-change: transform;
         }
 
         .noise {
@@ -85,17 +85,14 @@ export default function Hero() {
             radial-gradient(rgba(255, 255, 255, 0.35) 0.7px, transparent 1px),
             radial-gradient(rgba(120, 255, 210, 0.18) 0.6px, transparent 1px);
           background-size: 2px 2px, 3px 3px;
-          background-position: 0 0, 1px 1px;
           mix-blend-mode: overlay;
           animation: noiseShift 0.12s steps(3) infinite;
-          will-change: transform, opacity;
         }
 
         .flicker {
           background: rgba(255, 255, 255, 0.04);
           animation: flicker 0.15s infinite;
           mix-blend-mode: overlay;
-          will-change: opacity;
         }
 
         .surveillance-grid {
@@ -104,7 +101,6 @@ export default function Hero() {
             linear-gradient(90deg, rgba(120, 255, 210, 0.12) 1px, transparent 1px);
           background-size: 96px 96px;
           animation: gridDrift 18s linear infinite;
-          will-change: transform;
         }
 
         .sweep-line::before {
@@ -120,69 +116,35 @@ export default function Hero() {
             transparent 100%
           );
           animation: sweep 5s linear infinite;
-          will-change: transform;
         }
 
         @keyframes sweep {
-          0% {
-            transform: translateY(-100%);
-          }
-          100% {
-            transform: translateY(100%);
-          }
+          0% { transform: translateY(-100%); }
+          100% { transform: translateY(100%); }
         }
 
         @keyframes gridDrift {
-          0% {
-            transform: translate3d(0, 0, 0);
-          }
-          100% {
-            transform: translate3d(96px, 48px, 0);
-          }
+          0% { transform: translate3d(0, 0, 0); }
+          100% { transform: translate3d(96px, 48px, 0); }
         }
 
         @keyframes scanlineDrift {
-          0% {
-            transform: translateY(0);
-          }
-          100% {
-            transform: translateY(3px);
-          }
+          0% { transform: translateY(0); }
+          100% { transform: translateY(3px); }
         }
 
         @keyframes noiseShift {
-          0% {
-            transform: translate3d(0, 0, 0);
-            opacity: 0.1;
-          }
-          25% {
-            transform: translate3d(-1px, 1px, 0);
-            opacity: 0.12;
-          }
-          50% {
-            transform: translate3d(1px, -1px, 0);
-            opacity: 0.1;
-          }
-          75% {
-            transform: translate3d(1px, 1px, 0);
-            opacity: 0.135;
-          }
-          100% {
-            transform: translate3d(0, 0, 0);
-            opacity: 0.1;
-          }
+          0% { transform: translate3d(0,0,0); opacity: 0.1; }
+          25% { transform: translate3d(-1px,1px,0); opacity: 0.12; }
+          50% { transform: translate3d(1px,-1px,0); opacity: 0.1; }
+          75% { transform: translate3d(1px,1px,0); opacity: 0.135; }
+          100% { transform: translate3d(0,0,0); opacity: 0.1; }
         }
 
         @keyframes flicker {
-          0% {
-            opacity: 0.03;
-          }
-          50% {
-            opacity: 0.07;
-          }
-          100% {
-            opacity: 0.03;
-          }
+          0% { opacity: 0.03; }
+          50% { opacity: 0.07; }
+          100% { opacity: 0.03; }
         }
       `}</style>
     </section>
