@@ -20,6 +20,7 @@ export default function Home() {
           <SectionSlate
             section="REF"
             number="01"
+            titleLabel="TECHNICAL DOMAINS"
             title={<DecodeText text="Technical Domains" />}
             meta="CLASSIFICATION: UNCLASSIFIED // FOUO"
           />
@@ -41,6 +42,7 @@ export default function Home() {
           <SectionSlate
             section="REF"
             number="02"
+            titleLabel="STRATEGIC SECTORS"
             title={<DecodeText text="Strategic Sectors" />}
             meta="DISTRIBUTION: CONTROLLED"
             align="left"
@@ -63,6 +65,7 @@ export default function Home() {
           <SectionSlate
             section="REF"
             number="03"
+            titleLabel="INQUIRY PROTOCOL"
             title={<DecodeText text="Inquiry Protocol" />}
             meta="STATUS: SECURE_LINE_OPEN"
             align="left"
