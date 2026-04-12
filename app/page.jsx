@@ -4,6 +4,7 @@ import ClientLogos from "./components/ClientLogos";
 import CtaSection from "./components/CtaSection";
 import SectionSlate from "./components/SectionSlate";
 import Reveal from "./components/Reveal";
+import DecodeText from "./components/DecodeText";
 
 export default function Home() {
   return (
@@ -19,7 +20,7 @@ export default function Home() {
           <SectionSlate
             section="REF"
             number="01"
-            title="Technical Domains"
+            title={<DecodeText text="Technical Domains" />}
             meta="CLASSIFICATION: UNCLASSIFIED // FOUO"
           />
         </Reveal>
@@ -40,7 +41,7 @@ export default function Home() {
           <SectionSlate
             section="REF"
             number="02"
-            title="Strategic Sectors"
+            title={<DecodeText text="Strategic Sectors" />}
             meta="DISTRIBUTION: CONTROLLED"
             align="left"
           />
@@ -62,7 +63,7 @@ export default function Home() {
           <SectionSlate
             section="REF"
             number="03"
-            title="Inquiry Protocol"
+            title={<DecodeText text="Inquiry Protocol" />}
             meta="STATUS: SECURE_LINE_OPEN"
             align="left"
           />
