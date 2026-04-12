@@ -12,7 +12,7 @@ export default function Home() {
       {/* SECTION 01: TECHNICAL DOMAINS */}
       <section
         id="operations"
-        className="mx-auto max-w-7xl px-6 pt-12 pb-20 md:pt-16 md:pb-28"
+        className="mx-auto max-w-7xl px-6 pt-12 pb-10 md:pt-16 md:pb-14"
       >
         <SectionSlate
           section="REF"
@@ -28,7 +28,7 @@ export default function Home() {
       {/* SECTION 02: STRATEGIC SECTORS */}
       <section
         id="sectors"
-        className="mx-auto max-w-7xl px-6 pt-20 pb-20 md:pt-28 md:pb-28 border-t border-white/[0.03]"
+        className="mx-auto max-w-7xl px-6 pt-10 pb-10 md:pt-14 md:pb-14 border-t border-white/[0.03]"
       >
         <SectionSlate
           section="REF"
@@ -45,7 +45,7 @@ export default function Home() {
       {/* SECTION 03: INQUIRY PROTOCOL */}
       <section
         id="intake"
-        className="mx-auto max-w-7xl px-6 pt-20 pb-20 md:pt-28 md:pb-28 border-t border-white/[0.03]"
+        className="mx-auto max-w-7xl px-6 pt-10 pb-10 md:pt-14 md:pb-14 border-t border-white/[0.03]"
       >
         <SectionSlate
           section="REF"
