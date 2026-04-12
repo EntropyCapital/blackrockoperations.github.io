@@ -21,7 +21,7 @@ export const metadata = {
   description: "Facilitating operational continuity and high-trust documentation for entities operating within discrete and contested environments.",
 
   openGraph: {
-    title: "Blackrock Operations | Strategic Asset Archival",
+    title: "Blackrock Operations | Information Logistics & Strategic Assets",
     description: "Operational support for organizations in controlled, high-trust environments. Engaging in discrete information logistics.",
     url: "/",
     siteName: "Blackrock Operations",
