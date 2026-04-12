@@ -8,7 +8,7 @@ import DecodeText from "./components/DecodeText";
 
 export default function Home() {
   return (
-    <main className="bg-[#050505] text-white">
+    <main className="relative z-10 text-white">
       <Hero />
 
       {/* SECTION 01: TECHNICAL DOMAINS */}
