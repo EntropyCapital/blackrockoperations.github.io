@@ -2,11 +2,13 @@ export default function SectionSlate({
   section = "SECTION",
   number = "01",
   title = "Title",
+  titleLabel,
   meta = "REV 1.0 // UPDATED 2025-12-26",
   align = "left", // "left" | "center"
 }) {
   const isCenter = align === "center";
-  const titleLabel = typeof title === "string" ? title.toUpperCase() : title;
+  const smallLabel =
+    titleLabel ?? (typeof title === "string" ? title.toUpperCase() : "TITLE");
 
   return (
     <div className={isCenter ? "text-center" : "text-left"}>
@@ -18,7 +20,7 @@ export default function SectionSlate({
         }
       >
         <span className="text-xs font-semibold tracking-[0.22em] text-white/60">
-          {section} {number} — {titleLabel}
+          {section} {number} — {smallLabel}
         </span>
 
         <span className="hidden h-px w-24 bg-white/10 md:inline-block" />
